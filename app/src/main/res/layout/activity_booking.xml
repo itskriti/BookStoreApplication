@@ -16,6 +16,7 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
+//comment for this
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
