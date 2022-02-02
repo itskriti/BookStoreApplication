@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="normalspacing"> 10dp</dimen>
+    <dimen name="smallspacing"> 5dp</dimen>
+    <dimen name="largeSpacing"> 20dp</dimen>
+    <dimen name="medium_spacing">8dp</dimen>
+</resources>

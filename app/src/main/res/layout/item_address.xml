@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/addressAddLL"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/normalspacing"
+    android:background="@drawable/rectangle"
+    android:backgroundTint="#F1F6FD"
+    android:orientation="horizontal"
+
+    android:padding="@dimen/normalspacing">
+
+    <ImageView
+        android:layout_gravity="center_vertical"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="@color/primaryColor"
+        android:padding="@dimen/smallspacing"
+        android:src="@drawable/ic_baseline_location_on_24"
+        app:tint="@color/white" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cityStreetAddTV"
+            android:paddingStart="@dimen/normalspacing"
+            android:paddingTop="@dimen/smallspacing"
+            android:text="Pokhara, Masbar"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/provinceAddTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/normalspacing"
+            android:text="Gandaki Province"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+        <TextView
+            android:id="@+id/descAddTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/normalspacing"
+            android:text="Gandaki Province"
+
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

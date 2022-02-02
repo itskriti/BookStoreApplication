@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".booking.BookingActivity"
+    android:orientation="vertical"
+    android:layout_margin="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rectangle"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_back_arrow"
+            android:text="Booking"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/booking_details"
+        android:textColor="#031435"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"/>
+
+    <EditText
+        android:id="@+id/nameET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_user"
+        android:drawablePadding="20dp"
+        android:hint="Name"
+        android:paddingTop="18sp"
+        android:paddingBottom="16sp"/>
+
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_at"
+        android:drawablePadding="20dp"
+        android:hint="Email Address"
+        android:paddingTop="18sp"
+        android:paddingBottom="16sp"/>
+
+    <EditText
+        android:id="@+id/checkinET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_date"
+        android:drawablePadding="20dp"
+        android:hint="Check in "
+        android:paddingTop="18sp"
+        android:paddingBottom="16sp"/>
+
+    <EditText
+        android:id="@+id/checkoutET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_date"
+        android:drawablePadding="20dp"
+        android:hint="Check out"
+        android:paddingTop="18sp"
+        android:paddingBottom="16sp"/>
+
+    <EditText
+        android:id="@+id/addressET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_homepage"
+        android:drawablePadding="20dp"
+        android:hint="Address"
+        android:paddingTop="18sp"
+        android:paddingBottom="16sp"/>
+
+    <EditText
+        android:id="@+id/phoneET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_phone_call"
+        android:drawablePadding="20dp"
+        android:hint="Phone Number"
+        android:paddingTop="18sp"
+        android:paddingBottom="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rectangle"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:onClick="onPaymentClicked">
+
+        <TextView
+            android:id="@+id/proceedTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Proceed to Payment"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
