@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".home.fragments.ProfileFragment">
 
@@ -31,11 +32,230 @@
 
 
     </com.google.android.material.appbar.AppBarLayout>
-    <Button
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/grey_divider"
+        android:padding="@dimen/normalspacing"
+        android:layout_marginBottom="@dimen/normalspacing">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/catIV"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="155dp"
+            android:layout_marginBottom="30dp"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/download"
+            app:civ_border_color="@color/primaryColor"
+            app:civ_border_width="1dp"
+            tools:ignore="MissingClass" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/square"
+        android:padding="@dimen/normalspacing"
+        android:layout_marginStart="@dimen/normalspacing"
+        android:layout_marginEnd="@dimen/normalspacing">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="@dimen/normalspacing"
+
+            android:src="@drawable/ic_userprofile"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginStart="40dp"
+            />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_round_arrow_forward_ios_24"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/square"
+        android:padding="@dimen/normalspacing"
+        android:layout_marginStart="@dimen/normalspacing"
+        android:layout_marginEnd="@dimen/normalspacing"
+        android:layout_marginTop="@dimen/normalspacing">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="@dimen/normalspacing"
+
+            android:src="@drawable/ic_ebooks"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="My ebooks"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_round_arrow_forward_ios_24"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/square"
+        android:padding="@dimen/normalspacing"
+        android:layout_marginStart="@dimen/normalspacing"
+        android:layout_marginEnd="@dimen/normalspacing"
+        android:layout_marginTop="@dimen/normalspacing">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="@dimen/normalspacing"
+
+            android:src="@drawable/ic_orderhistory"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="Order History"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_round_arrow_forward_ios_24"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/square"
+        android:padding="@dimen/normalspacing"
+        android:layout_marginStart="@dimen/normalspacing"
+        android:layout_marginEnd="@dimen/normalspacing"
+        android:layout_marginTop="@dimen/normalspacing">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="@dimen/normalspacing"
+            android:src="@drawable/ic_settings"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="Setting"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_round_arrow_forward_ios_24"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/square"
+        android:padding="@dimen/normalspacing"
+        android:layout_marginStart="@dimen/normalspacing"
+        android:layout_marginEnd="@dimen/normalspacing"
+        android:layout_marginTop="@dimen/normalspacing">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="@dimen/normalspacing"
+
+            android:src="@drawable/ic_customer"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="Customer Service"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_round_arrow_forward_ios_24"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
         android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log Out"/>
+        android:layout_width="84dp"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="@dimen/normalspacing"
+        android:layout_marginEnd="@dimen/normalspacing"
+        android:layout_marginBottom="@dimen/normalspacing"
+        android:background="@drawable/rectangle"
+        android:gravity="center">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Logout"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ProgressBar
+            android:id="@+id/logoutPR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/normalspacing"
+            android:visibility="gone" />
+
+
+    </LinearLayout>
+
 
 
 </LinearLayout>

@@ -8,6 +8,43 @@
     android:padding="14dp"
     tools:context=".home.fragments.home.HomeFragment">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@drawable/search"
+                android:layout_marginEnd="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_isearch"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Search Books"
+
+                    />
+
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -38,7 +38,7 @@ public class SingleBookActivity extends AppCompatActivity {
     TextView name, price, desc, quantityTV, oldPrice;
     ProgressBar addingCartPR;
     LinearLayout addToCartLL;
-    int quantity = 2;
+    int quantity = 1;
     boolean isAdding = false;
 
 
