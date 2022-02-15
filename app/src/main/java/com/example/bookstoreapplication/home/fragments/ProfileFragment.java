@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.bookstoreapplication.R;
 import com.example.bookstoreapplication.UserAccount.UserAccountActivity;
@@ -18,7 +19,7 @@ import com.example.bookstoreapplication.utils.SharedPrefUtils;
 
 
 public class ProfileFragment extends Fragment {
-    Button logoutButton;
+    LinearLayout logoutButton;
 
 
 
