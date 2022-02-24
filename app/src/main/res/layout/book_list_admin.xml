@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    android:id="@+id/singleBookLL"
+        android:layout_centerInParent="true"
+        android:background="@color/priceGray"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/bookIV"
+        android:layout_width="170dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/img" />
+
+    <TextView
+        android:id="@+id/bookNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:text="The Zahir"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/authorTV"
+        android:text="By Paulo Coelho,"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="@color/orange"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/discountPriceTV"
+        android:text="Rs 1200"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="@color/primaryColor"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="Rs. 10000"
+            android:id="@+id/oldPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/strike"
+            android:maxLines="2"
+            android:textColor="@color/orange"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/discountPercentTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>
