@@ -36,7 +36,7 @@ public class CategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
-        allBookProductRV = findViewById(R.id.allProductRV);
+        allBookProductRV = findViewById(R.id.allBooksRV);
         loadingProgress = findViewById(R.id.loadingProgress);
         emptyIV = findViewById(R.id.emptyIV);
         if(getIntent().getSerializableExtra(CATEGORY_DATA_KEY) == null)

@@ -77,6 +77,7 @@
             app:tint="@color/black" />
 
         <TextView
+            android:id="@+id/editProfileTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit Profile"
@@ -111,6 +112,7 @@
             app:tint="@color/black" />
 
         <TextView
+            android:id="@+id/myBooksTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -144,6 +146,7 @@
             app:tint="@color/black" />
 
         <TextView
+            android:id="@+id/orderHistoryTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -176,6 +179,7 @@
             app:tint="@color/black" />
 
         <TextView
+            android:id="@+id/settingTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -209,6 +213,7 @@
             app:tint="@color/black" />
 
         <TextView
+            android:id="@+id/customerTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -255,6 +260,21 @@
 
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/adminAreaTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normalspacing"
+        android:background="@drawable/box_shape_selected"
+        android:backgroundTint="#F1EEEE"
+        android:drawableRight="@drawable/ic_baseline_admin_panel_settings_24"
+        android:drawableTint="@color/primaryColor"
+        android:padding="@dimen/normalspacing"
+        android:text="Admin Area"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:visibility="gone" />
 
 
 

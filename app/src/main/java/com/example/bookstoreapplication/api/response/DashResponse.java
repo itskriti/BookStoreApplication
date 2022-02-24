@@ -1,2 +1,4 @@
-package com.example.bookstoreapplication.api.response;public class DashResponse {
+package com.example.bookstoreapplication.api.response;
+
+public class DashResponse {
 }

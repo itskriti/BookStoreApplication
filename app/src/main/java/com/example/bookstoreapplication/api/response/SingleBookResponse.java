@@ -5,6 +5,41 @@ import com.google.gson.annotations.SerializedName;
 
 public class SingleBookResponse {
 
+    @SerializedName("book")
+    @Expose
+    private Book book;
+    @SerializedName("error")
+    @Expose
+    private Boolean error;
+    @SerializedName("message")
+    @Expose
+    private String message;
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public Boolean getError() {
+        return error;
+    }
+
+    public void setError(Boolean error) {
+        this.error = error;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+
 
 }
 

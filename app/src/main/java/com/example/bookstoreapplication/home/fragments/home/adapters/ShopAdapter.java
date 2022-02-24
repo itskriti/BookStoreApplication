@@ -111,13 +111,14 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
 
     public class ShopViewHolder extends RecyclerView.ViewHolder{
         ImageView bookIV, removeCartIV;
-        TextView nameTV, priceTV, discountPrice, quantityTV;
+        TextView nameTV, authorTV, priceTV, discountPrice, quantityTV;
         LinearLayout singleBookLL;
 
         public ShopViewHolder(@NonNull View itemView) {
             super(itemView);
             bookIV = itemView.findViewById(R.id.bookIV);
             nameTV = itemView.findViewById(R.id.bookNameTV);
+            authorTV = itemView.findViewById(R.id.authorTV);
             singleBookLL = itemView.findViewById(R.id.singleBookLL);
             priceTV = itemView.findViewById(R.id.oldPriceTV);
             discountPrice = itemView.findViewById(R.id.discountPriceTV);

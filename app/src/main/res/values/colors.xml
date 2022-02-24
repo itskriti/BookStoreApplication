@@ -13,5 +13,7 @@
     <color name="primaryColor">#7762FF</color>
     <color name="primeColor">#789AF2</color>
     <color name="grey_divider">#E7E8EC</color>
+    <color name="grey">#F0F1F3</color>
+    <color name="textSec">#98999C</color>
 
 </resources>

@@ -12,19 +12,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookStoreApplication">
         <activity
+            android:name=".admin.addCategory.ListCategoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".admin.books.ListBookActivity"
+            android:exported="true" />
+        <activity
+            android:name=".admin.AdminActivity"
+            android:exported="true" />
+        <activity
             android:name=".checkout.orderComplete.OrderCompleteActivity"
             android:exported="true" />
         <activity
             android:name=".checkout.address.AddressActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
         <activity
             android:name=".checkout.CheckOutActivity"
             android:exported="true" />
         <activity
             android:name=".categoryPage.CategoryActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            />
         <activity
             android:name=".singleBookPage.SingleBookActivity"
             android:exported="true" />

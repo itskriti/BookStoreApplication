@@ -1,5 +1,6 @@
 package com.example.bookstoreapplication.UserAccount.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -59,15 +60,18 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
             if(email.isEmpty() && password.isEmpty())
                 Toast.makeText(getContext(), "Email or password is Empty!", Toast.LENGTH_LONG).show();
             else{
-                toggleLoading(true);
-                System.out.println("22222222222222 Email is: " + email);
-                System.out.println("22222222222222 Password is: " + password);
+                ProgressDialog progressDialog = ProgressDialog.show(getContext(), "",
+                        "Logging In. PLease wait.....", false);
+//                toggleLoading(true);
+//                System.out.println("22222222222222 Email is: " + email);
+//                System.out.println("22222222222222 Password is: " + password);
 
                 Call<LoginResponse> loginResponseCall = ApiClient.getClient().login(email, password);
                 loginResponseCall.enqueue(new Callback<LoginResponse>() {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        toggleLoading(false);
+                        progressDialog.dismiss();
+                       // toggleLoading(false);
                         LoginResponse loginResponse = response.body();
                         if(response.isSuccessful()){
                             if(loginResponse.getError()){
@@ -94,8 +98,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
                     @Override
                     public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        toggleLoading(false);
-                        Toast.makeText(getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+//                        toggleLoading(false);
+//                        Toast.makeText(getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
                     }
                 });

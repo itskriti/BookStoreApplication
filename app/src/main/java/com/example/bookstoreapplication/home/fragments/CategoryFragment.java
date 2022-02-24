@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class CategoryFragment extends Fragment {
     RecyclerView fullCatRV;
-
+    SwipeRefreshLayout swipeRefresh;
 
 
     @Override
@@ -36,8 +37,10 @@ public class CategoryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fullCatRV = view.findViewById(R.id.fullCatRV);
+        swipeRefresh = view.findViewById(R.id.swipeRefresh);
         if(DataHolder.categories != null){
             showCategoryView(DataHolder.categories);
+
         }
 
     }

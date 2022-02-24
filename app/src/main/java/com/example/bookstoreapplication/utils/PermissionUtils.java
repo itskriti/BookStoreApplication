@@ -1,2 +1,4 @@
-package com.example.bookstoreapplication.utils;public class PermissionUtils {
+package com.example.bookstoreapplication.utils;
+
+public class PermissionUtils {
 }

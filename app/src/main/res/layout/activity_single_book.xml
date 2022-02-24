@@ -36,7 +36,19 @@
                     app:sliderIndicatorSelectedColor="@color/primaryColor"
                     app:sliderIndicatorUnselectedColor="#FFF"
 
-                    />
+                    >
+
+                    <ImageView
+                        android:id="@+id/wishlistIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="350dp"
+                        android:layout_marginTop="240dp"
+                        android:layout_marginEnd="@dimen/largeSpacing"
+                        android:layout_marginBottom="@dimen/largeSpacing"
+                        android:elevation="20dp"
+                        android:src="@drawable/ic_back_arrow" />
+                </com.smarteist.autoimageslider.SliderView>
 
                 <ImageView
                     android:id="@+id/backIV"

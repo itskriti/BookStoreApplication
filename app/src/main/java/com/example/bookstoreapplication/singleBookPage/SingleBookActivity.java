@@ -32,8 +32,9 @@ import retrofit2.Response;
 
 public class SingleBookActivity extends AppCompatActivity {
     public static String key = "pkey";
+    public static String SINGLE_DATA_KEY = "sds";
     Book book;
-    ImageView backIV, plusIV, minusIV;
+    ImageView backIV, plusIV, minusIV, wishListIV;
     SliderView imageSlider;
     TextView name, price, desc, quantityTV, oldPrice;
     ProgressBar addingCartPR;
@@ -58,13 +59,37 @@ public class SingleBookActivity extends AppCompatActivity {
         backIV = findViewById(R.id.backIV);
         plusIV = findViewById(R.id.plusIV);
         minusIV = findViewById(R.id.minusIV);
+        wishListIV = findViewById(R.id.wishlistIV);
         quantityTV = findViewById(R.id.quantityTV);
         setOnClickListeners();
         if (getIntent().getSerializableExtra(key) != null) {
             book = (Book) getIntent().getSerializableExtra(key);
             setBook(book);
-        }
+        } else if(getIntent().getSerializableExtra(SINGLE_DATA_KEY) != null)
+            getBookOnline(getIntent().getIntExtra(SINGLE_DATA_KEY,  1));
+        setOnClickListeners();
 
+    }
+
+    private void getBookOnline(int intExtra){
+        Call<SingleBookResponse> bookResponseCall = ApiClient.getClient().getBookById(intExtra);
+        bookResponseCall.enqueue(new Callback<SingleBookResponse>() {
+            @Override
+            public void onResponse(Call<SingleBookResponse> call, Response<SingleBookResponse> response) {
+                if (response.isSuccessful()) {
+                    if (!response.body().getError()) {
+                        book = response.body().getBook();
+                        setBook(book);
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SingleBookResponse> call, Throwable t) {
+
+            }
+        });
     }
 
     private void setBook(Book book) {
@@ -124,6 +149,16 @@ public class SingleBookActivity extends AppCompatActivity {
             else
                 quantity--;
             setQuantity();
+        });
+        wishListIV.setOnClickListener(view -> {
+            if (!isAdding){
+                isAdding = true;
+                addingToggle(true);
+                String key = SharedPrefUtils.getString(this, "apk");
+
+                Call<RegisterResponse> wishCall = ApiClient.getClient().addToCart(key, book.getId(), quantity);
+                
+            }
         });
         addToCartLL.setOnClickListener(v -> {
 

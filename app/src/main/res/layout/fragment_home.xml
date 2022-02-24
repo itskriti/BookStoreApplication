@@ -18,6 +18,7 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:id="@+id/searchLL"
                 android:paddingEnd="20dp"
                 android:paddingStart="20dp"
                 android:gravity="center_vertical"
@@ -94,6 +95,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/showAllTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"

@@ -4,6 +4,7 @@ import com.example.bookstoreapplication.api.response.AddressResponse;
 import com.example.bookstoreapplication.api.response.AllBookResponse;
 import com.example.bookstoreapplication.api.response.Category;
 import com.example.bookstoreapplication.api.response.CategoryResponse;
+import com.example.bookstoreapplication.api.response.DashResponse;
 import com.example.bookstoreapplication.api.response.LoginResponse;
 import com.example.bookstoreapplication.api.response.OrderHistoryResponse;
 import com.example.bookstoreapplication.api.response.RegisterResponse;
@@ -11,13 +12,17 @@ import com.example.bookstoreapplication.api.response.SingleBookResponse;
 import com.example.bookstoreapplication.api.response.Slider;
 import com.example.bookstoreapplication.api.response.SliderResponse;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -67,8 +72,34 @@ public interface ApiService {
     @DELETE("/api/v1/cart")
     Call<RegisterResponse> deleteFromCart(@Header("Apikey") String apikey, @Query("c_id") int cartID);
 
+    @GET("/api/v1/get-all-products")
+    Call<SingleBookResponse> getBookById(@Query("id") int c_id);
 
     @GET("/api/v1/address")
     Call<AddressResponse> getMyAddresses(@Header("Apikey") String apikey);
+
+    @FormUrlEncoded
+    @POST("/api/v1/address")
+    Call<RegisterResponse> addAddress(
+            @Header("Apikey") String apikey,
+            @Field("city") String city,
+            @Field("street") String street,
+            @Field("province") String province,
+            @Field("description") String description);
+
+    @Multipart
+    @POST("/api/v1/upload-category")
+    Call<RegisterResponse> uploadCategory(
+            @Header("Apikey") String apikey,
+            @Part MultipartBody.Part file,
+            @Part("name") RequestBody name
+
+    );
+
+    @GET("/api/v1/dash")
+    Call<DashResponse> getDash(@Header("Apikey") String apikey);
+
+    @DELETE("/api/v1/category")
+    Call<RegisterResponse> deleteCategory(@Header("Apikey") String apikey, @Query("c_id") int id);
 
 }

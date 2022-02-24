@@ -1,5 +1,6 @@
 package com.example.bookstoreapplication.home.fragments.home;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -13,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookstoreapplication.R;
@@ -24,10 +27,13 @@ import com.example.bookstoreapplication.api.response.Category;
 import com.example.bookstoreapplication.api.response.CategoryResponse;
 import com.example.bookstoreapplication.api.response.Slider;
 import com.example.bookstoreapplication.api.response.SliderResponse;
+import com.example.bookstoreapplication.categoryPage.CategoryActivity;
 import com.example.bookstoreapplication.home.fragments.home.adapters.CategoryAdapter;
 import com.example.bookstoreapplication.home.fragments.home.adapters.ShopAdapter;
 import com.example.bookstoreapplication.home.fragments.home.adapters.SliderAdapter;
+import com.example.bookstoreapplication.singleBookPage.SingleBookActivity;
 import com.example.bookstoreapplication.utils.DataHolder;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -43,6 +49,9 @@ public class HomeFragment extends Fragment {
     RecyclerView allHomeBookRV, categoryRV;
     ProgressBar loadingProgress;
     SliderView homeImageSlider;
+    TextView showAllTV;
+    LinearLayout searchLL;
+    BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -52,6 +61,10 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
+    public void setBottomNavigationView(BottomNavigationView bottomNavigationView) {
+        this.bottomNavigationView = bottomNavigationView;
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -59,9 +72,28 @@ public class HomeFragment extends Fragment {
         categoryRV = view.findViewById(R.id.categoryRV);
         loadingProgress = view.findViewById(R.id.loadingProgress);
         homeImageSlider = view.findViewById(R.id.homeImageSlider);
+        showAllTV = view.findViewById(R.id.showAllTV);
+        searchLL = view.findViewById(R.id.searchLL);
         serverCall();
         getCategoriesOnline();
         getSliders();
+        setClickListeners();
+    }
+
+    private void setClickListeners(){
+        showAllTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomNavigationView.setSelectedItemId(R.id.category);
+            }
+        });
+
+        searchLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void getCategoriesOnline() {
@@ -147,7 +179,20 @@ public class HomeFragment extends Fragment {
         sliderAdapter.setClickLister(new SliderAdapter.OnSliderClickLister() {
             @Override
             public void onSliderClick(int position, Slider slider) {
-                Toast.makeText(getContext(), "from home ", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "from home ", Toast.LENGTH_SHORT).show();
+
+                if(slider.getType() == 1){
+                    Intent intent = new Intent(getContext(), SingleBookActivity.class);
+                    intent.putExtra(SingleBookActivity.SINGLE_DATA_KEY, slider.getRelatedId());
+                    getContext().startActivity(intent);
+                } else if(slider.getType() == 2){
+                    Intent cat = new Intent(getContext(), CategoryActivity.class);
+                    Category category = new Category();
+                    category.setId(slider.getRelatedId());
+                    category.setName(slider.getDesc());
+                    cat.putExtra(CategoryActivity.CATEGORY_DATA_KEY, category);
+                    getContext().startActivity(cat);
+                }
             }
         });
 

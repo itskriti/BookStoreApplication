@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.mainBottomNav);
         homeFragment = new HomeFragment();
+        homeFragment.setBottomNavigationView(bottomNavigationView);
         currentFragment = homeFragment;
         getSupportFragmentManager().beginTransaction().add(R.id.mainFrameContainer, homeFragment).commit();
 

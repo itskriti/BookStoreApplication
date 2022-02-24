@@ -1,2 +1,4 @@
-package com.example.bookstoreapplication.utils;public class UriHelper {
+package com.example.bookstoreapplication.utils;
+
+public class UriHelper {
 }
