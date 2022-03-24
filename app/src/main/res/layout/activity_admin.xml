@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normalspacing"
-        android:background="@drawable/box_shape_selected"
+        android:background="@drawable/box"
         android:backgroundTint="@color/grey"
         android:padding="@dimen/normalspacing">
 
@@ -200,6 +200,8 @@
             android:useDefaultMargins="true">
 
             <LinearLayout
+                android:onClick="addProduct"
+                android:id="@+id/addProductLL"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"

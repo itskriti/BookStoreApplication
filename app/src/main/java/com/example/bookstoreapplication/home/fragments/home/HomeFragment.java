@@ -197,11 +197,11 @@ public class HomeFragment extends Fragment {
         });
 
         homeImageSlider.setSliderAdapter(sliderAdapter);
-        homeImageSlider.setIndicatorAnimation(IndicatorAnimationType.WORM);
+        homeImageSlider.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using IndicatorAnimation Type
         homeImageSlider.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
         homeImageSlider.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         homeImageSlider.setIndicatorUnselectedColor(Color.GRAY);
-        homeImageSlider.setScrollTimeInSec(4);
+        homeImageSlider.setScrollTimeInSec(4);  //set scroll delay in seconds;
         homeImageSlider.startAutoCycle();
 
     }

@@ -9,6 +9,7 @@
 
 
     <TextView
+        android:id="@+id/addAddressTV"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="18sp"

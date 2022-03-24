@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookStoreApplication">
         <activity
+            android:name=".admin.addBook.AddBookActivity"
+            android:exported="true" />
+        <activity
+            android:name=".checkout.address.AddNewAddressActivity"
+            android:exported="true" />
+        <activity
             android:name=".admin.addCategory.ListCategoryActivity"
             android:exported="true" />
         <activity
@@ -33,8 +39,7 @@
         <activity
             android:name=".categoryPage.CategoryActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
-            />
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
         <activity
             android:name=".singleBookPage.SingleBookActivity"
             android:exported="true" />

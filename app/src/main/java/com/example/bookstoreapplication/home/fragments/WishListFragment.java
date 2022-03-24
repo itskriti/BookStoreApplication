@@ -36,7 +36,6 @@ import retrofit2.Response;
 public class WishListFragment extends Fragment {
     RecyclerView allBookRV;
     List <Book> books;
-    TextView totalPriceTv;
     SwipeRefreshLayout swipeRefresh;
     LinearLayout addToCartLL;
     AllBookResponse allBookResponse;
@@ -54,7 +53,6 @@ public class WishListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         allBookRV = view.findViewById((R.id.allBooksRV));
-        totalPriceTv = view.findViewById(R.id.totalPriceTv);
         addToCartLL = view.findViewById(R.id.addToCartLL);
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
         addToCartLL.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +91,7 @@ public class WishListFragment extends Fragment {
                             allBookResponse = response.body();
                             books = response.body().getBooks();
                             loadCartList();
-                            setPrice();
+
                         }
                     }
                 }
@@ -116,39 +114,19 @@ public class WishListFragment extends Fragment {
             @Override
             public void onRemoveCart(int position) {
                 String key = SharedPrefUtils.getString(getActivity(), "apk");
-                Call<RegisterResponse> removeCartCall = ApiClient.getClient().deleteFromCart(key, books.get(position).getCartID());
-                removeCartCall.enqueue(new Callback<RegisterResponse>() {
-                    @Override
-                    public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-                        if(response.isSuccessful()){
+
                             books.remove(books.get(position));
                             shopAdapter.notifyItemRemoved(position);
-                            setPrice();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<RegisterResponse> call, Throwable t) {
 
                     }
-                });
-            }
+
+
         });
 
         allBookRV.setAdapter(shopAdapter);
     }
 
-    private void setPrice() {
-        double totalPrice = 0;
-        for (int i = 0; i < books.size(); i++){
-            if(books.get(i).getDiscountPrice() != 0 || books.get(i).getDiscountPrice() != null)
-                totalPrice = totalPrice + books.get(i).getDiscountPrice();
-            else
-                totalPrice = totalPrice + books.get(i).getPrice();
-        }
 
-        totalPriceTv.setText("( Rs. " + totalPrice + ")");
-    }
 
     @Override
     public void onResume() {

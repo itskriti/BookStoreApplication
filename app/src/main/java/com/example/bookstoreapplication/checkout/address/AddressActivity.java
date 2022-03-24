@@ -8,6 +8,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookstoreapplication.R;
@@ -25,18 +27,32 @@ import retrofit2.Response;
 public class AddressActivity extends AppCompatActivity {
     RecyclerView addressRV;
     public static String ADDRESS_SELECTED_KEY = "DFa";
+    TextView addAddressTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
         addressRV = findViewById(R.id.addressRV);
+        addAddressTV = findViewById(R.id.addAddressTV);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Select Address");
         getAddressOnline();
+        setClickListeners();
     }
+
+    private void setClickListeners(){
+        addAddressTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddressActivity.this, AddNewAddressActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 
     private void getAddressOnline() {
         String key = SharedPrefUtils.getString(this, "apk");

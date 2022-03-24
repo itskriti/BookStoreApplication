@@ -41,6 +41,10 @@ public interface ApiService {
     Call<RegisterResponse> addToCart(@Header("Apikey") String apikey, @Field("b_id") int p, @Field("quantity") int q);
 
     @FormUrlEncoded
+    @POST("/api/v1/wishlist")
+    Call<AllBookResponse> addToWishlist(@Header("Apikey") String apikey, @Field("b_id") int p, @Field("quantity") int q);
+
+    @FormUrlEncoded
     @POST("/api/v1/order")
     Call<RegisterResponse> order(@Header("Apikey") String apikey,
                                  @Field("p_type") int p_type,
@@ -80,7 +84,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("/api/v1/address")
-    Call<RegisterResponse> addAddress(
+    Call<AddressResponse> addAddress(
             @Header("Apikey") String apikey,
             @Field("city") String city,
             @Field("street") String street,

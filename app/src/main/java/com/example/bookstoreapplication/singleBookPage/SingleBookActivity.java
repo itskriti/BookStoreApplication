@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.bookstoreapplication.R;
 import com.example.bookstoreapplication.api.ApiClient;
+import com.example.bookstoreapplication.api.response.AllBookResponse;
 import com.example.bookstoreapplication.api.response.Book;
 import com.example.bookstoreapplication.api.response.RegisterResponse;
 import com.example.bookstoreapplication.api.response.SingleBookResponse;
@@ -156,8 +157,26 @@ public class SingleBookActivity extends AppCompatActivity {
                 addingToggle(true);
                 String key = SharedPrefUtils.getString(this, "apk");
 
-                Call<RegisterResponse> wishCall = ApiClient.getClient().addToCart(key, book.getId(), quantity);
-                
+                Call<AllBookResponse> wishlistCall = ApiClient.getClient().addToWishlist(key, book.getId(), quantity);
+                wishlistCall.enqueue(new Callback<AllBookResponse>() {
+                    @Override
+                    public void onResponse(Call<AllBookResponse> call, Response<AllBookResponse> response) {
+                        if (response.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                        addingToggle(false);
+                        isAdding = false;
+                    }
+
+                    @Override
+                    public void onFailure(Call<AllBookResponse> call, Throwable t) {
+                        addingToggle(false);
+                        isAdding = false;
+                    }
+                });
+
+            }  else {
+                Toast.makeText(getApplicationContext(), "Adding Already!!", Toast.LENGTH_SHORT).show();
             }
         });
         addToCartLL.setOnClickListener(v -> {

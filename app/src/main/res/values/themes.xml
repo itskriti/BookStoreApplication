@@ -32,5 +32,10 @@
     </style>
     <!-- Define other styles to fix theme -->
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.BookStoreApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.BookStoreApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
