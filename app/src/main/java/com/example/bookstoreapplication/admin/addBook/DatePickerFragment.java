@@ -1,4 +1,4 @@
-package com.thesaugat.appcommerce.admin.addProduct;
+package com.example.bookstoreapplication.admin.addBook;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

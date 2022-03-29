@@ -16,7 +16,7 @@
         android:title="Cart"
         />
     <item
-        android:id="@+id/search"
+        android:id="@+id/wishlist"
         android:icon="@drawable/ic_heart"
         android:title="Wishlist"
         />

@@ -1,4 +1,4 @@
-package com.thesaugat.appcommerce.utils;
+package com.example.bookstoreapplication.utils;
 
 import androidx.core.content.FileProvider;
 

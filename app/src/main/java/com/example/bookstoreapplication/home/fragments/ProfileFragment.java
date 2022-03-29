@@ -17,6 +17,8 @@ import android.widget.TextView;
 import com.example.bookstoreapplication.R;
 import com.example.bookstoreapplication.UserAccount.UserAccountActivity;
 import com.example.bookstoreapplication.admin.AdminActivity;
+import com.example.bookstoreapplication.profile.CustomerServiceActivity;
+import com.example.bookstoreapplication.profile.UserProfileActivity;
 import com.example.bookstoreapplication.utils.SharedPrefUtils;
 
 
@@ -69,7 +71,8 @@ public class ProfileFragment extends Fragment {
         editProfileTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), )
+                 Intent intent = new Intent(getContext(), UserProfileActivity.class);
+                 startActivity(intent);
             }
         });
 
@@ -97,6 +100,8 @@ public class ProfileFragment extends Fragment {
         customerTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getContext(), CustomerServiceActivity.class);
+                startActivity(intent);
 
             }
         });

@@ -135,17 +135,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Recommendation"
+                    android:text="Just For You"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="Show More>>"
-                    android:textColor="@color/primeColor"
-                    android:textSize="14sp" />
 
             </RelativeLayout>
 

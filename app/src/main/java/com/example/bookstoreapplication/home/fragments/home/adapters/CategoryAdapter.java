@@ -1,5 +1,6 @@
 package com.example.bookstoreapplication.home.fragments.home.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -29,14 +30,18 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     LayoutInflater inflater;
     Context context;
     boolean showImage;
+    Boolean select ;
+    Activity activity;
 
 
 
-    public CategoryAdapter(List<Category> categories, Context context, Boolean showImage){
+    public CategoryAdapter(List<Category> categories, Context context, Boolean showImage, Boolean select, Activity activity){
         this.categories = categories;
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.showImage = showImage;
+        this.select = select;
+        this.activity = activity;
 
     }
 

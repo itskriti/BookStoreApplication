@@ -7,6 +7,7 @@ import androidx.core.content.FileProvider;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -30,6 +31,7 @@ import com.example.bookstoreapplication.admin.books.ListBookActivity;
 import com.example.bookstoreapplication.api.ApiClient;
 import com.example.bookstoreapplication.api.response.Dash;
 import com.example.bookstoreapplication.api.response.DashResponse;
+import com.example.bookstoreapplication.api.response.RegisterResponse;
 import com.example.bookstoreapplication.utils.PermissionUtils;
 import com.example.bookstoreapplication.utils.SharedPrefUtils;
 
@@ -38,6 +40,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -229,7 +234,32 @@ public class AdminActivity extends AppCompatActivity {
     }
 
     private void uploadCategory(File f, String name, Dialog dialog){
+        ProgressDialog progressDialog = ProgressDialog.show(this, "",
+                "Uploading. Please wait...", false);
+        String key = SharedPrefUtils.getString(this, getString(R.string.api_key));
+        RequestBody catName = RequestBody.create(MediaType.parse("text/plain"), name);
+        MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", f.getName(), RequestBody.create(MediaType.parse("image/*"), f));
+        Call<RegisterResponse> responseCall = ApiClient.getClient().uploadCategory(key, filePart, catName);
+        responseCall.enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                progressDialog.dismiss();
+                if (response.isSuccessful()) {
+                    dialog.dismiss();
+                    Toast.makeText(AdminActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                } else {
+                    progressDialog.dismiss();
 
+                    Toast.makeText(AdminActivity.this, "Upload Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                dialog.dismiss();
+                Toast.makeText(AdminActivity.this, "Upload Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

@@ -91,6 +91,7 @@ public class HomeFragment extends Fragment {
         searchLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(getContext(), SearchActivity.class));
 
             }
         });
@@ -131,7 +132,7 @@ public class HomeFragment extends Fragment {
         }
         categoryRV.setHasFixedSize(true);
         categoryRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        CategoryAdapter categoryAdapter = new CategoryAdapter(temp, getContext(), true);
+        CategoryAdapter categoryAdapter = new CategoryAdapter(temp, getContext(), true, false, null);
         categoryRV.setAdapter(categoryAdapter);
 
     }
@@ -179,7 +180,7 @@ public class HomeFragment extends Fragment {
         sliderAdapter.setClickLister(new SliderAdapter.OnSliderClickLister() {
             @Override
             public void onSliderClick(int position, Slider slider) {
-//                Toast.makeText(getContext(), "from home ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "from home ", Toast.LENGTH_SHORT).show();
 
                 if(slider.getType() == 1){
                     Intent intent = new Intent(getContext(), SingleBookActivity.class);

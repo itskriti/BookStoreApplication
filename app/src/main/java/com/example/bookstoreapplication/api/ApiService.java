@@ -73,6 +73,9 @@ public interface ApiService {
     @GET("/api/v1/cart")
     Call<AllBookResponse> getMyCart(@Header("Apikey") String apikey);
 
+    @GET("/api/v1/wishlist")
+    Call<AllBookResponse> getMyWishList(@Header("Apikey") String apikey);
+
     @DELETE("/api/v1/cart")
     Call<RegisterResponse> deleteFromCart(@Header("Apikey") String apikey, @Query("c_id") int cartID);
 
@@ -97,6 +100,21 @@ public interface ApiService {
             @Header("Apikey") String apikey,
             @Part MultipartBody.Part file,
             @Part("name") RequestBody name
+
+    );
+
+    @Multipart
+    @POST("/api/v1/upload-product")
+    Call<RegisterResponse> uploadBook(
+            @Header("Apikey") String apikey,
+            @Part MultipartBody.Part[] files,
+            @Part("name") RequestBody name,
+            @Part("price") RequestBody price,
+            @Part("description") RequestBody description,
+            @Part("quantity") RequestBody quantity,
+            @Part("discount_price") RequestBody discount_price,
+            @Part("categories") RequestBody categories,
+            @Part("author_name") RequestBody author_name
 
     );
 

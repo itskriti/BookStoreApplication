@@ -48,7 +48,7 @@ public class CategoryFragment extends Fragment {
     private void showCategoryView(List<Category> categories) {
         fullCatRV.setHasFixedSize(true);
         fullCatRV.setLayoutManager(new GridLayoutManager(getContext(), 4));
-        CategoryAdapter categoryAdapter = new CategoryAdapter(categories, getContext(), true);
+        CategoryAdapter categoryAdapter = new CategoryAdapter(categories, getContext(), true, false, null);
         fullCatRV.setAdapter(categoryAdapter);
 
     }

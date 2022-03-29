@@ -1,5 +1,6 @@
 package com.example.bookstoreapplication.checkout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.audiofx.DynamicsProcessing;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,8 +28,17 @@ import com.example.bookstoreapplication.checkout.address.AddressActivity;
 import com.example.bookstoreapplication.checkout.orderComplete.OrderCompleteActivity;
 import com.example.bookstoreapplication.home.fragments.home.adapters.ShopAdapter;
 import com.example.bookstoreapplication.utils.SharedPrefUtils;
+//import com.khalti.checkout.helper.Config;
+//import com.khalti.checkout.helper.KhaltiCheckOut;
+//import com.khalti.checkout.helper.OnCheckOutListener;
+//import com.khalti.checkout.helper.PaymentPreference;
+//import com.khalti.utils.Constant;
 
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,6 +50,8 @@ public class CheckOutActivity extends AppCompatActivity {
     RecyclerView allBookRV;
     AllBookResponse allBookResponse;
     ImageView backIV;
+
+    ImageView cashOnDevIV, khaltiIV;
     LinearLayout addressLL, checkOutLL;
     Address address;
     TextView emptyAddressTv, cityStreetTV, provinceTV, totalTV, subTotalTV, shippingTV, totalPriceTV, discountTV;
@@ -65,6 +79,8 @@ public class CheckOutActivity extends AppCompatActivity {
         shippingTV = findViewById(R.id.shippingTV);
         totalPriceTV = findViewById(R.id.totalPriceTv);
         discountTV = findViewById(R.id.discountTV);
+        khaltiIV = findViewById(R.id.khaltiIV);
+        cashOnDevIV = findViewById(R.id.cashonDevIV);
         allBookResponse = (AllBookResponse) getIntent().getSerializableExtra(CHECK_OUT_PRODUCTS);
         books = allBookResponse.getBooks();
         setClickListenrs();
@@ -100,12 +116,72 @@ public class CheckOutActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(address != null){
-                    checkOut(subTotalPrice);
+                    if(p_type == 1){
+                        checkOut();
+                    } else {
+                        khaltiCheckOut();
+                    }
                 } else {
                     Toast.makeText(CheckOutActivity.this, "Please select a address", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        khaltiIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                p_type = 2;
+                khaltiIV.setBackground(getResources().getDrawable(R.drawable.box_shape_selected));
+                cashOnDevIV.setBackground(getResources().getDrawable(R.drawable.box));
+
+            }
+        });
+        cashOnDevIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                p_type = 1;
+                cashOnDevIV.setBackground(getResources().getDrawable(R.drawable.box_shape_selected));
+                khaltiIV.setBackground(getResources().getDrawable(R.drawable.box));
+            }
+        });
+
+    }
+
+    private void khaltiCheckOut(){
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("merchant_extra", "This is extra data");
+//
+//        Config.Builder builder = new Config.Builder(Constant.pub, "" + books.get(0).getId(), books.get(0).getName(), (long) (subTotalPrice + shippingCharge) * 100, new OnCheckOutListener() {
+//            @Override
+//            public void onError(@NonNull String action, @NonNull Map<String, String> errorMap) {
+//                Log.i(action, errorMap.toString());
+//                Toast.makeText(CheckOutActivity.this, errorMap.toString(), Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onSuccess(@NonNull Map<String, Object> data) {
+//                Log.i("success", data.toString());
+//                p_type = 2;
+//                p_ref = data.toString();
+//                checkOut();
+//
+//            }
+//        })
+//                .paymentPreferences(new ArrayList<PaymentPreference>() {{
+//                    add(PaymentPreference.KHALTI);
+//                    add(PaymentPreference.EBANKING);
+//                    add(PaymentPreference.MOBILE_BANKING);
+//                    add(PaymentPreference.CONNECT_IPS);
+//                    add(PaymentPreference.SCT);
+//                }})
+//                .additionalData(map)
+//                .productUrl("https://bazarhub.com.np/router-ups")
+//                .mobile("9802778788");
+//        Config config = builder.build();
+//        KhaltiCheckOut khaltiCheckOut = new KhaltiCheckOut(this, config);
+//        khaltiCheckOut.show();
+//
+
+
 
     }
 
@@ -157,7 +233,7 @@ public class CheckOutActivity extends AppCompatActivity {
         addressLL.setVisibility(View.VISIBLE);
     }
 
-    private void checkOut(double subTotalPrice) {
+    private void checkOut() {
         String key = SharedPrefUtils.getString(this, "apk");
         Call<RegisterResponse> orderCall = ApiClient.getClient().order(key, p_type, address.getId(), p_ref);
         orderCall.enqueue(new Callback<RegisterResponse>() {

@@ -19,7 +19,7 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderViewHol
     LayoutInflater inflater;
     Context context;
     OnSliderClickLister onSliderClickLister;
-    boolean isFitted = true;
+    boolean isFitted;
 
     public SliderAdapter(List<Slider> sliders, Context context, Boolean isFitted){
         this.sliders = sliders;
@@ -41,7 +41,8 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderViewHol
     public void onBindViewHolder(SliderViewHolder viewHolder, int position) {
 
        Picasso.get().load(sliders.get(position).getImage()).into(viewHolder.imageViewBackground);
-
+       if(isFitted)
+           viewHolder.imageViewBackground.setScaleType(ImageView.ScaleType.FIT_XY);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

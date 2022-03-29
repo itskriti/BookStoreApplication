@@ -42,7 +42,7 @@
                         android:id="@+id/wishlistIV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="350dp"
+                        android:layout_marginStart="340dp"
                         android:layout_marginTop="240dp"
                         android:layout_marginEnd="@dimen/largeSpacing"
                         android:layout_marginBottom="@dimen/largeSpacing"
@@ -160,7 +160,7 @@
                     android:id="@+id/minusIV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_add_24" />
+                    android:src="@drawable/ic_subtract" />
 
                 <TextView
                     android:id="@+id/quantityTV"

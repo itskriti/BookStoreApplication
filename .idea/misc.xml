@@ -35,8 +35,10 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.2074074074074074" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.2074074074074074" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_circle_line.xml" value="0.2074074074074074" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_customer.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_date.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_ebooks.xml" value="0.13645833333333332" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_edit.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_empty.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_google.xml" value="0.11574074074074074" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_heart.xml" value="0.11574074074074074" />
@@ -44,13 +46,17 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_homepage.xml" value="0.1" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_isearch.xml" value="0.11574074074074074" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_orderhistory.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_padlock.xml" value="0.11574074074074074" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_phone_call.xml" value="0.1" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_round_add_24.xml" value="0.2611111111111111" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_settings.xml" value="0.24537037037037038" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_subtract.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/ic_undraw_contact_us_re_4qqt.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/rect.xml" value="0.2074074074074074" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/search.xml" value="0.11851851851851852" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/drawable/text_shape.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_add_book.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_add_category.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_add_new_address.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_address.xml" value="0.25" />
@@ -58,16 +64,20 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_booking.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_category.xml" value="0.4463667820069204" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_check_out.xml" value="0.3967391304347826" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_customer_service.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_list_book.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_list_category.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_order_complete.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_order_complete.xml" value="0.152" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_payment.xml" value="0.2359375" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_search.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_search_results.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_select_category.xml" value="0.1" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_single_book.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_splash_screen.xml" value="1.2" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_user_account.xml" value="0.536" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_user_profile.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/book_cart.xml" value="0.5270588235294118" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/book_category.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/book_list.xml" value="0.25" />
@@ -80,14 +90,19 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_login.xml" value="0.25" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_profile.xml" value="0.2305263157894737" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_profile.xml" value="0.4041184041184041" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_second.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_wish_list.xml" value="0.25" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/item_add_category.xml" value="0.8" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/item_address.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/item_category_no_image.xml" value="0.1" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/item_image.xml" value="0.1" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/search_books.xml" value="0.1" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/menu/bottom_menu.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/menu/options_menu.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14375" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.26614583333333336" />
       </map>
     </option>
   </component>

@@ -60,7 +60,7 @@ public class ListCategoryActivity extends AppCompatActivity {
 
     private void showCategoryView(List<Category> categories){
         fullCatRV.setHasFixedSize(true);
-        CategoryAdapter categoryAdapter = new CategoryAdapter(categories, this, false);
+        CategoryAdapter categoryAdapter = new CategoryAdapter(categories, this, false, false, this);
         fullCatRV.setLayoutManager(new GridLayoutManager(this, 1));
         fullCatRV.setAdapter(categoryAdapter);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
