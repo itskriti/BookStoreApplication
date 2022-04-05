@@ -26,28 +26,41 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     Boolean isCart = false;
     Boolean removeEnabled = true;
     CartItemClick cartItemClick;
+//    WishlistItemClick wishlistItemClick;
+    Boolean isWishlist = false;
 
-    public ShopAdapter(List<Book> bookDataList, Context context, Boolean isCart){
+    public ShopAdapter(List<Book> bookDataList, Context context, Boolean isCart, Boolean isWishlist){
         this.bookDataList = bookDataList;
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
         this.isCart = isCart;
+        this.isWishlist = isWishlist;
     }
 
     public  void setCartItemClick(CartItemClick cartItemClick){
      this.cartItemClick = cartItemClick;
     }
+//
+//    public void setWishlistItemClick(WishlistItemClick wishlistItemClick){
+//        this.wishlistItemClick = wishlistItemClick;
+//    }
 
 
     public interface CartItemClick {
         public void onRemoveCart(int position);
     }
 
+//    public interface WishlistItemClick {
+//        public void onRemoveWishlist(int position);
+//    }
+
     @NonNull
     @Override
     public ShopViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if(isCart)
             return new ShopViewHolder(layoutInflater.inflate(R.layout.book_cart, parent, false));
+//        else if(isWishlist)
+//            return new ShopViewHolder(layoutInflater.inflate(R.layout.book_wishlist, parent, false));
         else
             return new ShopViewHolder(layoutInflater.inflate(R.layout.book_list, parent, false));
 
@@ -90,6 +103,22 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             }
             holder.quantityTV.setText(bookDataList.get(position).getCartQuantity() + "");
         }
+
+//        if (isWishlist) {
+//            if (removeEnabled)
+//                holder.removeCartIV.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        wishlistItemClick.onRemoveWishlist(holder.getAdapterPosition());
+//                    }
+//                });
+//            else {
+//                holder.removeCartIV.setVisibility(View.GONE);
+//                holder.singleBookLL.setLayoutParams( new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+//                setMargins(holder.singleBookLL,0,0,16,0);
+//            }
+//            holder.quantityTV.setText(bookDataList.get(position).getCartQuantity() + "");
+//        }
     }
 
     public static void setMargins(View v, int l , int t, int r, int b){
@@ -110,7 +139,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     }
 
     public class ShopViewHolder extends RecyclerView.ViewHolder{
-        ImageView bookIV, removeCartIV;
+        ImageView bookIV, removeCartIV, removeWishlistIV;
         TextView nameTV, authorTV, priceTV, discountPrice, quantityTV;
         LinearLayout singleBookLL;
 
@@ -126,6 +155,11 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
                 removeCartIV = itemView.findViewById(R.id.removeCartIV);
                 quantityTV = itemView.findViewById(R.id.quantityTV);
             }
+
+//            if(isWishlist) {
+//                removeWishlistIV = itemView.findViewById(R.id.removeWishlistIV);
+//                quantityTV = itemView.findViewById(R.id.quantityTV);
+//            }
         }
     }
 }

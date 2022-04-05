@@ -25,51 +25,17 @@ import java.util.List;
 import java.util.Locale;
 
 public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.SearchViewHolder> implements Filterable {
-    List<Book> booksList;
-    List<Book> authorName;
+    List<Book> bookListFull;
+    List<Book> searchData;
     LayoutInflater layoutInflater;
     Context context;
 
-    public SearchBookAdapter(List<Book> booksList, Context context) {
-        this.booksList = booksList;
-        authorName = new ArrayList<>(booksList);
+    public SearchBookAdapter(List<Book> bookListFull, Context context ){
+        this.bookListFull = bookListFull;
         layoutInflater = LayoutInflater.from(context);
         this.context = context;
+        searchData = new ArrayList<>(bookListFull);
     }
-
-
-    @Override
-    public Filter getFilter() {
-        return filter;
-    }
-
-    private Filter filter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence charSequence) {
-            List<Book> suggestions = new ArrayList<>();
-            if(charSequence == null || charSequence.length() == 0){
-                suggestions.addAll(authorName);
-            } else {
-                String filterPattern = charSequence.toString().toLowerCase().trim();
-                for (Book item : authorName){
-                    if(item.getName().toLowerCase().contains(filterPattern));
-                    suggestions.add(item);
-                }
-            }
-
-            FilterResults results = new FilterResults();
-            results.values = suggestions;
-            return  results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            booksList.clear();
-            booksList.addAll((List) filterResults.values);
-            notifyDataSetChanged();
-
-        }
-    };
 
     @NonNull
     @Override
@@ -79,16 +45,17 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Se
 
     @Override
     public void onBindViewHolder(@NonNull SearchBookAdapter.SearchViewHolder holder, int position) {
-        holder.bookNameSearch.setText(booksList.get(position).getName());
-        holder.bookPriceSearch.setText("Rs. " + booksList.get(position).getDiscountPrice() + "");
-        Picasso.get().load(booksList.get(position).getImages().get(0)).into(holder.bookImageSearch);
+        holder.SearchProductNameTV.setText(bookListFull.get(position).getName());
+        holder.SearchDiscountPriceTV.setText("Rs. " + bookListFull.get(position).getPrice() +"");
+        Picasso.get().load(bookListFull.get(position).getImages().get(0)).into(holder.SearchProductIV);
 
-        holder.searchLayout.setOnClickListener(new View.OnClickListener() {
+        holder.SearchViewLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, SingleBookActivity.class);
-                intent.putExtra(SingleBookActivity.SINGLE_DATA_KEY, booksList.get(holder.getAdapterPosition()));
+                intent.putExtra(SingleBookActivity.key, bookListFull.get(holder.getAdapterPosition()));
                 context.startActivity(intent);
+
             }
         });
 
@@ -96,21 +63,62 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Se
 
     @Override
     public int getItemCount() {
-        return booksList.size();
+        if(bookListFull != null){
+            return bookListFull.size();
+        }
+        return 0;
     }
 
 
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+    private Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<Book> suggestions = new ArrayList<>();
+            if (charSequence == null || charSequence.length() == 0){
+                suggestions.addAll(searchData);
+            }else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+                for (Book item : searchData){
+                    if(item.getName().toLowerCase().contains(filterPattern)){
+                        suggestions.add(item);
+
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = suggestions;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            bookListFull.clear();
+            bookListFull.addAll((List) filterResults.values);
+            notifyDataSetChanged();
+        }
+
+    };
+
+
+
+
     public class SearchViewHolder extends RecyclerView.ViewHolder {
-        TextView bookNameSearch, bookPriceSearch;
-        ImageView bookImageSearch;
-        LinearLayout searchLayout;
+        ImageView SearchProductIV;
+        TextView SearchProductNameTV, SearchOldPriceTV, SearchDiscountPriceTV;
+        LinearLayout SearchViewLL;
+
 
         public SearchViewHolder(@NonNull View itemView) {
             super(itemView);
-            bookImageSearch = itemView.findViewById(R.id.bookImageSearch);
-            bookNameSearch = itemView.findViewById(R.id.bookNameSearch);
-            bookPriceSearch = itemView.findViewById(R.id.bookPriceSearch);
-            searchLayout = itemView.findViewById(R.id.searchLayout);
+            SearchProductIV = itemView.findViewById(R.id.bookImageSearch);
+            SearchOldPriceTV = itemView.findViewById(R.id.bookPriceSearch);
+            SearchDiscountPriceTV = itemView.findViewById(R.id.SearchDiscountPriceTV);
+            SearchProductNameTV = itemView.findViewById(R.id.bookNameSearch);
+            SearchViewLL = itemView.findViewById(R.id.searchLayout);
         }
     }
 }

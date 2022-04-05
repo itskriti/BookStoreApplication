@@ -110,7 +110,7 @@ public class CartFragment extends Fragment {
         allBookRV.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         allBookRV.setLayoutManager(layoutManager);
-        shopAdapter = new ShopAdapter(books, getContext(), true);
+        shopAdapter = new ShopAdapter(books, getContext(), true, false);
         shopAdapter.setCartItemClick(new ShopAdapter.CartItemClick() {
             @Override
             public void onRemoveCart(int position) {
@@ -141,9 +141,9 @@ public class CartFragment extends Fragment {
         double totalPrice = 0;
         for (int i = 0; i < books.size(); i++){
             if(books.get(i).getDiscountPrice() != 0 || books.get(i).getDiscountPrice() != null)
-                totalPrice = totalPrice + books.get(i).getDiscountPrice();
+                totalPrice = totalPrice + books.get(i).getDiscountPrice()* books.get(i).getCartQuantity();
             else
-                totalPrice = totalPrice + books.get(i).getPrice();
+                totalPrice = totalPrice + books.get(i).getPrice()* books.get(i).getCartQuantity();
         }
 
         totalPriceTv.setText("( Rs. " + totalPrice + ")");

@@ -78,8 +78,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                                 System.out.println("222222221222222222222 my error  is: "+ loginResponse.getError());
                                 Toast.makeText(getActivity(), "Incorrect password or incorrect email", Toast.LENGTH_SHORT).show();
 
-
-
                             }else {
                                Toast.makeText(getActivity(), "Welcome", Toast.LENGTH_LONG).show();
                                 System.out.println("222222221222222222222 my api key is: "+ loginResponse.getApiKey());
@@ -90,6 +88,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                                 SharedPrefUtils.setString(getActivity(), getString(R.string.email_id), loginResponse.getEmail());
                                 SharedPrefUtils.setString(getActivity(), getString(R.string.created_key), loginResponse.getCreatedAt());
                                 SharedPrefUtils.setString(getActivity(), getString(R.string.api_key), loginResponse.getApiKey());
+                                SharedPrefUtils.setBoolean(getActivity(), getString(R.string.staff_key), loginResponse.getIs_staff());
                                 getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
                                 getActivity().finish();
                             }

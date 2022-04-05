@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
 
 import com.example.bookstoreapplication.R;
@@ -22,34 +24,38 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SearchActivity extends AppCompatActivity {
-    SearchView searchView;
-    RecyclerView book_RV;
-    SearchBookAdapter searchBookAdapter;
+    android.widget.SearchView searchView;
+    RecyclerView product_RV;
+    SearchBookAdapter searchAdapter;
+    LinearLayout SearchLL;
     ImageView backIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getWindow().setStatusBarColor(Color.WHITE);
+//        getSupportActionBar().hide();
         searchView = findViewById(R.id.searchView);
-        book_RV = findViewById(R.id.book_RV);
+        product_RV = findViewById(R.id.book_RV);
+        SearchLL = findViewById(R.id.searchLayout);
         backIV = findViewById(R.id.backIV);
-
         backIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 onBackPressed();
             }
         });
 
         searchListener();
-
-        Call<AllBookResponse> searchResponse = ApiClient.getClient().getAllBooks();
-        searchResponse.enqueue(new Callback<AllBookResponse>() {
+        Call<AllBookResponse> searchProductResponseCall = ApiClient.getClient().getAllBooks();
+        searchProductResponseCall.enqueue(new Callback<AllBookResponse>() {
             @Override
             public void onResponse(Call<AllBookResponse> call, Response<AllBookResponse> response) {
-                if(response.isSuccessful()){
-                    if(!response.body().getError()){
+                if (response.isSuccessful()) {
+                    if (!response.body().getError()) {
                         setSearchView(response.body().getBooks());
                     }
                 }
@@ -60,9 +66,11 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
-    private void searchListener(){
+    private void searchListener() {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -71,26 +79,26 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                searchBookAdapter.getFilter().filter(s);
-                if(s.length() > 0){
-                    book_RV.setVisibility(View.VISIBLE);
-                } else {
-                    book_RV.setVisibility(View.GONE);
+                if (searchAdapter != null) {
+                    searchAdapter.getFilter().filter(s);
                 }
+//                if(s.length()>0){
+//                    product_RV.setVisibility(View.VISIBLE);
+//                    SearchLL.setVisibility(View.GONE);
+//                }else{
+//                    product_RV.setVisibility(View.GONE);
+//                    SearchLL.setVisibility(View.VISIBLE);
+//                }
                 return false;
             }
         });
 
-
-
-
-
     }
 
-    private void setSearchView(List<Book> bookList){
-        book_RV.setHasFixedSize(true);
-        book_RV.setLayoutManager(new GridLayoutManager(SearchActivity.this, 1));
-        searchBookAdapter = new SearchBookAdapter(bookList, this);
-        book_RV.setAdapter(searchBookAdapter);
+    private void setSearchView(List<Book> books) {
+        product_RV.setHasFixedSize(true);
+        product_RV.setLayoutManager(new GridLayoutManager(SearchActivity.this, 1));
+        searchAdapter = new SearchBookAdapter(books, this);
+        product_RV.setAdapter(searchAdapter);
     }
 }

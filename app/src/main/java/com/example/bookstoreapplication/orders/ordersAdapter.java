@@ -1,2 +1,4 @@
-package com.example.bookstoreapplication.orders;public class ordersAdapter {
+package com.example.bookstoreapplication.orders;
+
+public class ordersAdapter {
 }

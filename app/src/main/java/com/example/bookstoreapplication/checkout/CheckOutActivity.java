@@ -188,7 +188,7 @@ public class CheckOutActivity extends AppCompatActivity {
     private void loadCartList(){
         allBookRV.setHasFixedSize(true);
         allBookRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        ShopAdapter shopAdapter = new ShopAdapter(books, this, true);
+        ShopAdapter shopAdapter = new ShopAdapter(books, this, true, false);
         shopAdapter.setRemoveEnabled(false);
         allBookRV.setAdapter(shopAdapter);
         setPrice();
@@ -199,12 +199,12 @@ public class CheckOutActivity extends AppCompatActivity {
         double discount = 0;
         for(int i = 0; i < books.size(); i++){
             if(books.get(i).getDiscountPrice() != 0 || books.get(i).getDiscountPrice() != null){
-                subTotalPrice = subTotalPrice + books.get(i).getDiscountPrice();
+                subTotalPrice = subTotalPrice + books.get(i).getDiscountPrice()*books.get(i).getCartQuantity();
                 discount = discount + books.get(i).getPrice() - books.get(i).getDiscountPrice();
 
             }
             else
-                subTotalPrice = subTotalPrice + books.get(i).getPrice();
+                subTotalPrice = subTotalPrice + books.get(i).getPrice()* books.get(i).getCartQuantity();
         }
 
         subTotalTV.setText("Rs. " + (subTotalPrice));

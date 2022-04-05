@@ -42,7 +42,7 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         editProfileTV = view.findViewById(R.id.editProfileTV);
         myBooksTV = view.findViewById(R.id.myBooksTV);
-        orderHistoryTV = view.findViewById(R.id.orderHistoryTV);
+//        orderHistoryTV = view.findViewById(R.id.orderHistoryTV);
         settingTV = view.findViewById(R.id.settingTV);
         customerTV = view.findViewById(R.id.customerTV);
         logoutButton = view.findViewById(R.id.logout);

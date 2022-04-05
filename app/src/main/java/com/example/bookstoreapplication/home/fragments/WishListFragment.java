@@ -13,13 +13,17 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.bookstoreapplication.R;
 import com.example.bookstoreapplication.api.ApiClient;
 import com.example.bookstoreapplication.api.response.AllBookResponse;
 import com.example.bookstoreapplication.api.response.Book;
+import com.example.bookstoreapplication.api.response.RegisterResponse;
 import com.example.bookstoreapplication.home.fragments.home.adapters.ShopAdapter;
+import com.example.bookstoreapplication.home.fragments.home.adapters.WishlistAdapter;
 import com.example.bookstoreapplication.utils.SharedPrefUtils;
 
 import java.util.List;
@@ -36,6 +40,7 @@ public class WishListFragment extends Fragment {
     LinearLayout addToCartLL;
     AllBookResponse allBookResponse;
     ShopAdapter shopAdapter;
+    ImageView emptyWishlistIV;
 
 
 
@@ -52,6 +57,7 @@ public class WishListFragment extends Fragment {
 
         allBookRV = view.findViewById((R.id.allBooksRV));
         addToCartLL = view.findViewById(R.id.addToCartLL);
+        emptyWishlistIV = view.findViewById(R.id.emptyWishlistIV);
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
         addToCartLL.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,14 +90,17 @@ public class WishListFragment extends Fragment {
             public void onResponse(Call<AllBookResponse> call, Response<AllBookResponse> response) {
                 swipeRefresh.setRefreshing(false);
                 if(response.isSuccessful()){
-                    if (!response.isSuccessful()){
-                        if(!response.body().getError()){
+                    if (!response.body().getError()) {
+                        if (response.body().getBooks().size() == 0) {
+                            showEmptyLayout();
+                        } else {
+                            emptyWishlistIV.setVisibility(View.GONE);
                             allBookResponse = response.body();
                             books = response.body().getBooks();
                             loadWishList();
-
                         }
                     }
+
                 }
             }
 
@@ -103,26 +112,44 @@ public class WishListFragment extends Fragment {
         });
     }
 
+    private void showEmptyLayout(){
+        emptyWishlistIV.setVisibility(View.VISIBLE);
+
+    }
+
     private void loadWishList() {
         allBookRV.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
         allBookRV.setLayoutManager(layoutManager);
-        shopAdapter = new ShopAdapter(books, getContext(), true);
-        shopAdapter.setCartItemClick(new ShopAdapter.CartItemClick() {
+        WishlistAdapter wishlistAdapter = new WishlistAdapter(books, getContext());
+        wishlistAdapter.setWishCartItemClick(new WishlistAdapter.WishlistCartItemClick() {
             @Override
             public void onRemoveCart(int position) {
                 String key = SharedPrefUtils.getString(getActivity(), "apk");
+                Call<RegisterResponse> removeCartCall = ApiClient.getClient().deleteFromCart(key, books.get(position).getCartID());
+                removeCartCall.enqueue(new Callback<RegisterResponse>() {
+                    @Override
+                    public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                        if (response.isSuccessful()) {
+                            if (!response.body().getError()) {
+                                books.remove(books.get(position));
+                                wishlistAdapter.notifyItemChanged(position);
+                                Toast.makeText(getContext(), "Cart Item successfully deleted", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
 
-                books.remove(books.get(position));
-                shopAdapter.notifyItemRemoved(position);
+                    @Override
+                    public void onFailure(Call<RegisterResponse> call, Throwable t) {
 
+                    }
+                });
             }
-
-
         });
-
-        allBookRV.setAdapter(shopAdapter);
+        allBookRV.setAdapter(wishlistAdapter);
     }
+
+
 
 
 

@@ -79,6 +79,9 @@ public interface ApiService {
     @DELETE("/api/v1/cart")
     Call<RegisterResponse> deleteFromCart(@Header("Apikey") String apikey, @Query("c_id") int cartID);
 
+    @DELETE("/api/v1/cart")
+    Call<RegisterResponse> deleteFromWishlist(@Header("Apikey") String apikey, @Query("w_id") int wishlistID);
+
     @GET("/api/v1/get-all-products")
     Call<SingleBookResponse> getBookById(@Query("id") int c_id);
 
