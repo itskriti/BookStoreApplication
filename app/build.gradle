@@ -66,9 +66,9 @@ dependencies {
 
 //
 //// payment integration
-//    implementation ('com.khalti:khalti-android:2.01.02') {
-//        transitive = true
-//    }
+    implementation ('com.khalti:khalti-android:2.01.02') {
+        transitive = true
+    }
 
 
 

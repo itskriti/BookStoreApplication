@@ -38,22 +38,22 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("/api/v1/cart")
-    Call<RegisterResponse> addToCart(@Header("Apikey") String apikey, @Field("b_id") int p, @Field("quantity") int q);
+    Call<RegisterResponse> addToCart(@Header("api_key") String apikey, @Field("b_id") int p, @Field("quantity") int q);
 
     @FormUrlEncoded
     @POST("/api/v1/wishlist")
-    Call<AllBookResponse> addToWishlist(@Header("Apikey") String apikey, @Field("b_id") int p, @Field("quantity") int q);
+    Call<AllBookResponse> addToWishlist(@Header("api_key") String apikey, @Field("b_id") int p, @Field("quantity") int q);
 
     @FormUrlEncoded
     @POST("/api/v1/order")
-    Call<RegisterResponse> order(@Header("Apikey") String apikey,
+    Call<RegisterResponse> order(@Header("api_key") String apikey,
                                  @Field("p_type") int p_type,
                                  @Field("address_id") int address_id,
                                  @Field("payment_refrence") String paymentRefrence);
 
 
     @GET("/api/v1/order")
-    Call<OrderHistoryResponse> orderHistory(@Header("Apikey") String apikey
+    Call<OrderHistoryResponse> orderHistory(@Header("api_key") String apikey
     );
 
     @GET("api/v1/get-all-books")
@@ -71,27 +71,27 @@ public interface ApiService {
 
 
     @GET("/api/v1/cart")
-    Call<AllBookResponse> getMyCart(@Header("Apikey") String apikey);
+    Call<AllBookResponse> getMyCart(@Header("api_key") String apikey);
 
     @GET("/api/v1/wishlist")
-    Call<AllBookResponse> getMyWishList(@Header("Apikey") String apikey);
+    Call<AllBookResponse> getMyWishList(@Header("api_key") String apikey);
 
     @DELETE("/api/v1/cart")
-    Call<RegisterResponse> deleteFromCart(@Header("Apikey") String apikey, @Query("c_id") int cartID);
+    Call<RegisterResponse> deleteFromCart(@Header("api_key") String apikey, @Query("c_id") int cartID);
 
     @DELETE("/api/v1/cart")
-    Call<RegisterResponse> deleteFromWishlist(@Header("Apikey") String apikey, @Query("w_id") int wishlistID);
+    Call<RegisterResponse> deleteFromWishlist(@Header("api_key") String apikey, @Query("w_id") int wishlistID);
 
     @GET("/api/v1/get-all-products")
     Call<SingleBookResponse> getBookById(@Query("id") int c_id);
 
     @GET("/api/v1/address")
-    Call<AddressResponse> getMyAddresses(@Header("Apikey") String apikey);
+    Call<AddressResponse> getMyAddresses(@Header("api_key") String apikey);
 
     @FormUrlEncoded
     @POST("/api/v1/address")
     Call<AddressResponse> addAddress(
-            @Header("Apikey") String apikey,
+            @Header("api_key") String apikey,
             @Field("city") String city,
             @Field("street") String street,
             @Field("province") String province,
@@ -100,7 +100,7 @@ public interface ApiService {
     @Multipart
     @POST("/api/v1/upload-category")
     Call<RegisterResponse> uploadCategory(
-            @Header("Apikey") String apikey,
+            @Header("api_key") String apikey,
             @Part MultipartBody.Part file,
             @Part("name") RequestBody name
 
@@ -109,7 +109,7 @@ public interface ApiService {
     @Multipart
     @POST("/api/v1/upload-product")
     Call<RegisterResponse> uploadBook(
-            @Header("Apikey") String apikey,
+            @Header("api_key") String apikey,
             @Part MultipartBody.Part[] files,
             @Part("name") RequestBody name,
             @Part("price") RequestBody price,
@@ -122,9 +122,9 @@ public interface ApiService {
     );
 
     @GET("/api/v1/dash")
-    Call<DashResponse> getDash(@Header("Apikey") String apikey);
+    Call<DashResponse> getDash(@Header("api_key") String apikey);
 
     @DELETE("/api/v1/category")
-    Call<RegisterResponse> deleteCategory(@Header("Apikey") String apikey, @Query("c_id") int id);
+    Call<RegisterResponse> deleteCategory(@Header("api_key") String apikey, @Query("c_id") int id);
 
 }

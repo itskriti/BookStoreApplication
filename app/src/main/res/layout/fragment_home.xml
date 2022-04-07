@@ -17,20 +17,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/userperson"
+                app:civ_border_color="@color/white" />
+
             <LinearLayout
                 android:id="@+id/searchLL"
                 android:paddingEnd="20dp"
-                android:paddingStart="20dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:background="@drawable/search"
+                android:layout_marginStart="@dimen/normalspacing"
                 android:layout_marginEnd="14dp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
                     android:src="@drawable/ic_isearch"/>
 
                 <TextView
@@ -42,6 +50,8 @@
 
 
             </LinearLayout>
+
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -41,7 +41,7 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         editProfileTV = view.findViewById(R.id.editProfileTV);
-        myBooksTV = view.findViewById(R.id.myBooksTV);
+//        myBooksTV = view.findViewById(R.id.myBooksTV);
 //        orderHistoryTV = view.findViewById(R.id.orderHistoryTV);
         settingTV = view.findViewById(R.id.settingTV);
         customerTV = view.findViewById(R.id.customerTV);
@@ -76,19 +76,15 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        myBooksTV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
-
-        orderHistoryTV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+//        orderHistoryTV.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getContext(), UserProfileActivity.class);
+//                startActivity(intent);
+//
+//            }
+//        });
 
         settingTV.setOnClickListener(new View.OnClickListener() {
             @Override

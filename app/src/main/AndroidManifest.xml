@@ -11,11 +11,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BookStoreApplication">
+        android:theme="@style/Theme.BookStoreApplication"
+        tools:replace="android:theme">
+
+        <!--         tools:replace="android:theme"> -->
+
         <activity
             android:name=".orders.orderDetails.orderDetailsActivity"
             android:exported="true" />
-        <!-- tools:replace="android:theme"> -->
+
         <activity
             android:name=".profile.CustomerServiceActivity"
             android:exported="true" />

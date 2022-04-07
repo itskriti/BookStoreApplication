@@ -24,8 +24,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="@dimen/smallspacing"
-                android:background="@drawable/rectangle"
-                android:backgroundTint="@color/grey_divider"
+                android:background="@drawable/borderbox_shape"
                 android:padding="4dp"
                 android:src="@drawable/ic_back_arrow"
                 app:tint="@color/priceGray" />
@@ -184,15 +183,15 @@
                 app:civ_border_color="@color/grey_divider"
                 app:civ_border_width="1dp" />
 
-            <ImageView
-                android:layout_marginStart="@dimen/normalspacing"
-                android:background="@drawable/box"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:padding="@dimen/medium_spacing"
-                android:src="@drawable/esewa"
-                app:civ_border_color="@color/grey_divider"
-                app:civ_border_width="1dp" />
+<!--            <ImageView-->
+<!--                android:layout_marginStart="@dimen/normalspacing"-->
+<!--                android:background="@drawable/box"-->
+<!--                android:layout_width="70dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:padding="@dimen/medium_spacing"-->
+<!--                android:src="@drawable/esewa"-->
+<!--                app:civ_border_color="@color/grey_divider"-->
+<!--                app:civ_border_width="1dp" />-->
 
 
         </LinearLayout>
@@ -254,27 +253,27 @@
 
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/smallspacing"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/normalspacing"
-            android:paddingEnd="@dimen/normalspacing">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="@dimen/smallspacing"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingStart="@dimen/normalspacing"-->
+<!--            android:paddingEnd="@dimen/normalspacing">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Discount:" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Discount:" />-->
 
-            <TextView
-                android:id="@+id/discountTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:text="- Rs. 1000"
-                android:textColor="@color/black" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/discountTV"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="end"-->
+<!--                android:text="- Rs. 1000"-->
+<!--                android:textColor="@color/black" />-->
+<!--        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"

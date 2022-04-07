@@ -28,11 +28,10 @@ import com.example.bookstoreapplication.checkout.address.AddressActivity;
 import com.example.bookstoreapplication.checkout.orderComplete.OrderCompleteActivity;
 import com.example.bookstoreapplication.home.fragments.home.adapters.ShopAdapter;
 import com.example.bookstoreapplication.utils.SharedPrefUtils;
-//import com.khalti.checkout.helper.Config;
-//import com.khalti.checkout.helper.KhaltiCheckOut;
-//import com.khalti.checkout.helper.OnCheckOutListener;
-//import com.khalti.checkout.helper.PaymentPreference;
-//import com.khalti.utils.Constant;
+import com.khalti.checkout.helper.Config;
+import com.khalti.checkout.helper.KhaltiCheckOut;
+import com.khalti.checkout.helper.OnCheckOutListener;
+import com.khalti.checkout.helper.PaymentPreference;
 
 
 import java.util.ArrayList;
@@ -78,7 +77,7 @@ public class CheckOutActivity extends AppCompatActivity {
         subTotalTV = findViewById(R.id.subTotalTV);
         shippingTV = findViewById(R.id.shippingTV);
         totalPriceTV = findViewById(R.id.totalPriceTv);
-        discountTV = findViewById(R.id.discountTV);
+//        discountTV = findViewById(R.id.discountTV);
         khaltiIV = findViewById(R.id.khaltiIV);
         cashOnDevIV = findViewById(R.id.cashonDevIV);
         allBookResponse = (AllBookResponse) getIntent().getSerializableExtra(CHECK_OUT_PRODUCTS);
@@ -126,15 +125,7 @@ public class CheckOutActivity extends AppCompatActivity {
                 }
             }
         });
-        khaltiIV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                p_type = 2;
-                khaltiIV.setBackground(getResources().getDrawable(R.drawable.box_shape_selected));
-                cashOnDevIV.setBackground(getResources().getDrawable(R.drawable.box));
 
-            }
-        });
         cashOnDevIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,46 +135,56 @@ public class CheckOutActivity extends AppCompatActivity {
             }
         });
 
+        khaltiIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                p_type = 2;
+                khaltiIV.setBackground(getResources().getDrawable(R.drawable.box_shape_selected));
+                cashOnDevIV.setBackground(getResources().getDrawable(R.drawable.box));
+
+            }
+        });
+
+
     }
 
     private void khaltiCheckOut(){
-//        Map<String, Object> map = new HashMap<>();
-//        map.put("merchant_extra", "This is extra data");
-//
-//        Config.Builder builder = new Config.Builder(Constant.pub, "" + books.get(0).getId(), books.get(0).getName(), (long) (subTotalPrice + shippingCharge) * 100, new OnCheckOutListener() {
-//            @Override
-//            public void onError(@NonNull String action, @NonNull Map<String, String> errorMap) {
-//                Log.i(action, errorMap.toString());
-//                Toast.makeText(CheckOutActivity.this, errorMap.toString(), Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onSuccess(@NonNull Map<String, Object> data) {
-//                Log.i("success", data.toString());
-//                p_type = 2;
-//                p_ref = data.toString();
-//                checkOut();
-//
-//            }
-//        })
-//                .paymentPreferences(new ArrayList<PaymentPreference>() {{
-//                    add(PaymentPreference.KHALTI);
-//                    add(PaymentPreference.EBANKING);
-//                    add(PaymentPreference.MOBILE_BANKING);
-//                    add(PaymentPreference.CONNECT_IPS);
-//                    add(PaymentPreference.SCT);
-//                }})
-//                .additionalData(map)
-//                .productUrl("https://bazarhub.com.np/router-ups")
-//                .mobile("9802778788");
-//        Config config = builder.build();
-//        KhaltiCheckOut khaltiCheckOut = new KhaltiCheckOut(this, config);
-//        khaltiCheckOut.show();
-//
+        Map<String, Object> map = new HashMap<>();
+        map.put("merchant_extra", "This is extra data");
 
+        Config.Builder builder = new Config.Builder("test_public_key_3813e725b5d44f78a0a83cd340e89736", ""+books.get(0).getId(), books.get(0).getName(), (long) (subTotalPrice + shippingCharge)*100, new OnCheckOutListener() {
+            @Override
+            public void onError(@NonNull String action, @NonNull Map<String, String> errorMap) {
+                Log.i(action, errorMap.toString());
+                Toast.makeText(CheckOutActivity.this, errorMap.toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSuccess(@NonNull Map<String, Object> data) {
+                Log.i("success", data.toString());
+                p_type = 2;
+                p_ref = data.toString();
+                checkOut();
+
+            }
+        })
+                .paymentPreferences(new ArrayList<PaymentPreference>() {{
+                    add(PaymentPreference.KHALTI);
+                    add(PaymentPreference.EBANKING);
+                    add(PaymentPreference.MOBILE_BANKING);
+                    add(PaymentPreference.CONNECT_IPS);
+                    add(PaymentPreference.SCT);
+                }})
+                .additionalData(map)
+                .productUrl("http://example.com/product")
+                .mobile("9846950151");
+        Config config = builder.build();
+        KhaltiCheckOut khaltiCheckOut = new KhaltiCheckOut(this, config);
+        khaltiCheckOut.show();
 
 
     }
+
 
     private void loadCartList(){
         allBookRV.setHasFixedSize(true);
@@ -200,7 +201,7 @@ public class CheckOutActivity extends AppCompatActivity {
         for(int i = 0; i < books.size(); i++){
             if(books.get(i).getDiscountPrice() != 0 || books.get(i).getDiscountPrice() != null){
                 subTotalPrice = subTotalPrice + books.get(i).getDiscountPrice()*books.get(i).getCartQuantity();
-                discount = discount + books.get(i).getPrice() - books.get(i).getDiscountPrice();
+//                discount = discount + books.get(i).getPrice() - books.get(i).getDiscountPrice();
 
             }
             else
@@ -209,9 +210,9 @@ public class CheckOutActivity extends AppCompatActivity {
 
         subTotalTV.setText("Rs. " + (subTotalPrice));
         totalTV.setText("Rs. " + (subTotalPrice + shippingCharge));
-        totalPriceTV.setText("( Rs. " + subTotalPrice + " )");
+        totalPriceTV.setText("( Rs. " + totalTV.getText() + " )");
         shippingTV.setText("Rs. " + shippingCharge);
-        discountTV.setText("-" + "Rs. " + discount);
+//        discountTV.setText("-" + "Rs. " + discount);
     }
 
     @Override
