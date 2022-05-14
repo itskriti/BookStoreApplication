@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -69,11 +70,13 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     @Override
     public void onBindViewHolder(@NonNull ShopAdapter.ShopViewHolder holder, int position) {
         holder.nameTV.setText(bookDataList.get(position).getName());
+//        holder.authorTV.setText(bookDataList.get(position).getAuthorName());
         if (bookDataList.get(position).getDiscountPrice() == null || bookDataList.get(position).getDiscountPrice() == 0){
             holder.priceTV.setVisibility(View.GONE);
             holder.discountPrice.setText("Rs. "+bookDataList.get(position).getPrice() + "");
         }
         else
+//            holder.authorTV.setText(bookDataList.get(position).getAuthorName());
             holder.discountPrice.setText("Rs. "+bookDataList.get(position).getDiscountPrice()+"");
         holder.priceTV.setText(bookDataList.get(position).getPrice()+"");
 
@@ -93,6 +96,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
                     @Override
                     public void onClick(View view) {
                         cartItemClick.onRemoveCart(holder.getAdapterPosition());
+                        //System.out.println("Successfully deleted");
 
                     }
                 });
@@ -147,13 +151,16 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             super(itemView);
             bookIV = itemView.findViewById(R.id.bookIV);
             nameTV = itemView.findViewById(R.id.bookNameTV);
-            authorTV = itemView.findViewById(R.id.authorTV);
+
             singleBookLL = itemView.findViewById(R.id.singleBookLL);
             priceTV = itemView.findViewById(R.id.oldPriceTV);
             discountPrice = itemView.findViewById(R.id.discountPriceTV);
             if(isCart){
                 removeCartIV = itemView.findViewById(R.id.removeCartIV);
                 quantityTV = itemView.findViewById(R.id.quantityTV);
+            }
+            else{
+                authorTV = itemView.findViewById(R.id.authorTV);
             }
 
 //            if(isWishlist) {

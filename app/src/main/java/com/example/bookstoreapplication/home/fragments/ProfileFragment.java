@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bookstoreapplication.R;
 import com.example.bookstoreapplication.UserAccount.UserAccountActivity;
@@ -65,6 +66,7 @@ public class ProfileFragment extends Fragment {
                 SharedPrefUtils.setBoolean(getActivity(), getString(R.string.isLogged), false);
                 Intent intent = new Intent(getContext(), UserAccountActivity.class);
                 startActivity(intent);
+//                Toast.makeText(this, "You are logged out from this app", Toast.LENGTH_SHORT).show();
             }
         });
 

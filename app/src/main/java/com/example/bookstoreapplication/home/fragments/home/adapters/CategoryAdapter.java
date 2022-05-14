@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bookstoreapplication.R;
 import com.example.bookstoreapplication.api.response.Category;
 import com.example.bookstoreapplication.categoryPage.CategoryActivity;
+import com.example.bookstoreapplication.utils.DataHolder;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -64,9 +65,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         holder.categoryItemLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, CategoryActivity.class);
-                intent.putExtra(CategoryActivity.CATEGORY_DATA_KEY, categories.get(holder.getAdapterPosition()));
-                context.startActivity(intent);
+                if (select) {
+                    DataHolder.category = categories.get(holder.getAdapterPosition());
+                    activity.finish();
+
+                } else {
+                    Intent intent = new Intent(context, CategoryActivity.class);
+                    intent.putExtra(CategoryActivity.CATEGORY_DATA_KEY, categories.get(holder.getAdapterPosition()));
+                    context.startActivity(intent);
+                }
             }
         });
 

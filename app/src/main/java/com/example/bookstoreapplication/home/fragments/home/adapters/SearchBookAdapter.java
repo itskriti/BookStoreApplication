@@ -46,7 +46,9 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Se
     @Override
     public void onBindViewHolder(@NonNull SearchBookAdapter.SearchViewHolder holder, int position) {
         holder.SearchProductNameTV.setText(bookListFull.get(position).getName());
-        holder.SearchDiscountPriceTV.setText("Rs. " + bookListFull.get(position).getPrice() +"");
+        holder.searchANameTV.setText(bookListFull.get(position).getAuthorName());
+        holder.SearchOldPriceTV.setText("Rs. " +bookListFull.get(position).getPrice()+ "");
+        holder.SearchDiscountPriceTV.setText("Rs. " + bookListFull.get(position).getDiscountPrice() +"");
         Picasso.get().load(bookListFull.get(position).getImages().get(0)).into(holder.SearchProductIV);
 
         holder.SearchViewLL.setOnClickListener(new View.OnClickListener() {
@@ -83,10 +85,12 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Se
             }else {
                 String filterPattern = charSequence.toString().toLowerCase().trim();
                 for (Book item : searchData){
-                    if(item.getName().toLowerCase().contains(filterPattern)){
+                    if(item.getName().toLowerCase().contains(filterPattern)
+                            || item.getAuthorName().toLowerCase().contains(filterPattern)){
                         suggestions.add(item);
 
                     }
+
                 }
             }
             FilterResults results = new FilterResults();
@@ -108,7 +112,7 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Se
 
     public class SearchViewHolder extends RecyclerView.ViewHolder {
         ImageView SearchProductIV;
-        TextView SearchProductNameTV, SearchOldPriceTV, SearchDiscountPriceTV;
+        TextView SearchProductNameTV, SearchOldPriceTV, SearchDiscountPriceTV, searchANameTV;
         LinearLayout SearchViewLL;
 
 
@@ -118,6 +122,7 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Se
             SearchOldPriceTV = itemView.findViewById(R.id.bookPriceSearch);
             SearchDiscountPriceTV = itemView.findViewById(R.id.SearchDiscountPriceTV);
             SearchProductNameTV = itemView.findViewById(R.id.bookNameSearch);
+            searchANameTV = itemView.findViewById(R.id.searchANameTV);
             SearchViewLL = itemView.findViewById(R.id.searchLayout);
         }
     }

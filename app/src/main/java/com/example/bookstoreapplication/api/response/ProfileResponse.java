@@ -1,2 +1,29 @@
-package com.example.bookstoreapplication.api.response;public class ProfileResponse {
+package com.example.bookstoreapplication.api.response;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+public class ProfileResponse {
+    @SerializedName("error")
+    @Expose
+    private Boolean error;
+    @SerializedName("message")
+    @Expose
+    private String message;
+
+    public Boolean getError() {
+        return error;
+    }
+
+    public void setError(Boolean error) {
+        this.error = error;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

@@ -1,7 +1,9 @@
 package com.example.bookstoreapplication.api.response;
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
 
 public class Dash {
 
@@ -17,9 +19,9 @@ public class Dash {
     @SerializedName("shippedOrders")
     @Expose
     private Integer shippedOrders;
-    @SerializedName("products")
+    @SerializedName("books")
     @Expose
-    private Integer products;
+    private Integer books;
     @SerializedName("categories")
     @Expose
     private Integer categories;
@@ -56,12 +58,12 @@ public class Dash {
         this.shippedOrders = shippedOrders;
     }
 
-    public Integer getProducts() {
-        return products;
+    public Integer getBooks() {
+        return books;
     }
 
-    public void setProducts(Integer products) {
-        this.products = products;
+    public void setBooks(Integer books) {
+        this.books = books;
     }
 
     public Integer getCategories() {

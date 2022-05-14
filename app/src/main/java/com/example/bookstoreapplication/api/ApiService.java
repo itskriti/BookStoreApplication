@@ -7,6 +7,7 @@ import com.example.bookstoreapplication.api.response.CategoryResponse;
 import com.example.bookstoreapplication.api.response.DashResponse;
 import com.example.bookstoreapplication.api.response.LoginResponse;
 import com.example.bookstoreapplication.api.response.OrderHistoryResponse;
+import com.example.bookstoreapplication.api.response.ProfileResponse;
 import com.example.bookstoreapplication.api.response.RegisterResponse;
 import com.example.bookstoreapplication.api.response.SingleBookResponse;
 import com.example.bookstoreapplication.api.response.Slider;
@@ -107,7 +108,7 @@ public interface ApiService {
     );
 
     @Multipart
-    @POST("/api/v1/upload-product")
+    @POST("/api/v1/upload-book")
     Call<RegisterResponse> uploadBook(
             @Header("api_key") String apikey,
             @Part MultipartBody.Part[] files,
@@ -127,4 +128,7 @@ public interface ApiService {
     @DELETE("/api/v1/category")
     Call<RegisterResponse> deleteCategory(@Header("api_key") String apikey, @Query("c_id") int id);
 
+    @FormUrlEncoded
+    @POST("/api/v1/update-profile")
+    Call<ProfileResponse> updateProfile(@Header("api_key") String apikey, @Field("name") String name, @Field("email") String email) ;
 }

@@ -32,6 +32,8 @@ import com.example.bookstoreapplication.api.ApiClient;
 import com.example.bookstoreapplication.api.response.Dash;
 import com.example.bookstoreapplication.api.response.DashResponse;
 import com.example.bookstoreapplication.api.response.RegisterResponse;
+import com.example.bookstoreapplication.orders.orderDetails.OrderDetailsActivity;
+import com.example.bookstoreapplication.orders.orderDetails.OrderHistoryActivity;
 import com.example.bookstoreapplication.utils.PermissionUtils;
 import com.example.bookstoreapplication.utils.SharedPrefUtils;
 
@@ -52,7 +54,7 @@ public class AdminActivity extends AppCompatActivity {
     private static final int PICK_PICTURE = 1;
     private static final String TEMP_DIRECT = "/Book/Picture/.temp/";
     TextView pendingOrdersTV, totalOrdersTV, shippedOrdersTV, totalCategoriesTV, totalCustomersTV, totalProductsTV;
-    LinearLayout addCategory, imageLayout, categoryList, productsLL;
+    LinearLayout addCategory, imageLayout, categoryList, productsLL, ordersLL;
     private Uri imageUri;
     String currentPhotoPath;
     ImageView selectedIV;
@@ -92,7 +94,7 @@ public class AdminActivity extends AppCompatActivity {
         totalCustomersTV.setText(dash.getCustomers().toString());
         totalOrdersTV.setText(dash.getProcessingOrders().toString());
         shippedOrdersTV.setText(dash.getShippedOrders().toString());
-        totalProductsTV.setText(dash.getProducts().toString());
+        totalProductsTV.setText(dash.getBooks().toString());
     }
 
     private void findIds(){
@@ -105,6 +107,7 @@ public class AdminActivity extends AppCompatActivity {
         addCategory = findViewById(R.id.addCategory);
         categoryList = findViewById(R.id.categoryList);
         productsLL = findViewById(R.id.productsLL);
+        ordersLL = findViewById(R.id.ordersLL);
         setClickListeners();
     }
 
@@ -126,6 +129,13 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminActivity.this, ListBookActivity.class);
+                startActivity(intent);
+            }
+        });
+        ordersLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminActivity.this, OrderHistoryActivity.class);
                 startActivity(intent);
             }
         });
@@ -179,7 +189,7 @@ public class AdminActivity extends AppCompatActivity {
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     if (file != null) {
                         Uri photoURI = FileProvider.getUriForFile(AdminActivity.this,
-                                "com.example.android.fileprovider",
+                                "com.example.android.filesprovider",
                                 file);
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                         startActivityForResult(intent, TAKE_PICTURE);

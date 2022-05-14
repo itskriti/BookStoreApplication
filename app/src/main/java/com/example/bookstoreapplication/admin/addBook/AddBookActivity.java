@@ -234,7 +234,7 @@ public class AddBookActivity extends AppCompatActivity {
         String result = cat.stream()
                 .map(n -> String.valueOf(n.getId()))
                 .collect(Collectors.joining(",", "[", "]"));
-        System.out.println(result);
+//        System.out.println(result);
         RequestBody categories = RequestBody.create(MediaType.parse("text/plain"), result);
 
         Call<RegisterResponse> responseCall = ApiClient.getClient().uploadBook(
@@ -254,7 +254,7 @@ public class AddBookActivity extends AppCompatActivity {
                 progressDialog.dismiss();
                 if(response.isSuccessful()){
                     if(!response.body().getError()){
-                        Toast.makeText(AddBookActivity.this, "Product Uploaded", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddBookActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
                         finish();
                     }else {
                         Toast.makeText(AddBookActivity.this, "Upload Failed", Toast.LENGTH_SHORT).show();
