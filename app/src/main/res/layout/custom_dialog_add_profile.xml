@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/off_white">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/normal_spacing"-->
+<!--        android:orientation="vertical"-->
+<!--        android:background="@drawable/upload_rectangle"-->
+<!--        android:backgroundTint="@color/white">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/dotted_border"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/imageLayout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="70dp"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:src="@drawable/upload"-->
+<!--                    android:tint="@color/grey"-->
+<!--                    />-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/selectedIV"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    android:layout_width="70dp"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:visibility="gone"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textColor="@color/grey"-->
+<!--                    android:textSize="12dp"-->
+<!--                    android:text="Upload category from your phone or open camera to upload new category" />-->
+
+<!--            </LinearLayout>-->
+
+
+
+<!--        </LinearLayout>-->
+
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/image"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginBottom="@dimen/normal_spacing"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/cameraIV"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:background="@drawable/upload_rectangle"-->
+<!--                android:backgroundTint="@color/light_blue"-->
+<!--                android:gravity="center">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:tint="@color/navy_blue"-->
+<!--                    android:src="@drawable/camera" />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Open Camera"-->
+<!--                    android:textSize="12dp"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:textColor="@color/navy_blue" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/galleryIV"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:background="@drawable/upload_rectangle"-->
+<!--                android:backgroundTint="@color/light_blue"-->
+<!--                android:gravity="center"-->
+<!--                >-->
+
+<!--                <ImageView-->
+<!--                    android:tint="@color/navy_blue"-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:src="@drawable/gallery" />-->
+
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Open Gallery"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:textSize="12dp"-->
+<!--                    android:textColor="@color/navy_blue" />-->
+
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+
+
+
+
+
+
+
+
+
+
+<!--        &lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:layout_gravity="center_vertical"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:layout_marginLeft="@dimen/normal_spacing"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:text="Select Image"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:textColor="@color/black" />&ndash;&gt;-->
+
+
+
+
+<!--        &lt;!&ndash;        <ImageView&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:id="@+id/selectedIV"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:scaleType="centerCrop"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_width="150dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_height="150dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_gravity="center"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_marginBottom="@dimen/normal_spacing"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:visibility="gone" />&ndash;&gt;-->
+
+<!--        <Button-->
+<!--            android:id="@+id/upload"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:backgroundTint="@color/light_blue"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:text="UPLOAD"-->
+<!--            android:textColor="@color/navy_blue" />-->
+
+<!--    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_spacing"
+        android:orientation="vertical"
+        android:background="@drawable/upload_rectangle"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dotted_border"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/imageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/upload"
+                    android:tint="@color/grey"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/grey"
+                    android:textSize="12dp"
+                    android:text="Upload picture from your phone or open camera to upload picture" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/selectedIV"
+                android:scaleType="centerCrop"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/normal_spacing"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/cameraIV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@drawable/upload_rectangle"
+                android:backgroundTint="@color/light_blue"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:tint="@color/navy_blue"
+                    android:src="@drawable/camera" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Open Camera"
+                    android:textSize="12dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/navy_blue" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/galleryIV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:orientation="horizontal"
+                android:background="@drawable/upload_rectangle"
+                android:backgroundTint="@color/light_blue"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:tint="@color/navy_blue"
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/gallery" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Open Gallery"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="12dp"
+                    android:textColor="@color/navy_blue" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center_vertical"-->
+        <!--                android:layout_marginLeft="@dimen/normal_spacing"-->
+        <!--                android:text="Select Image"-->
+        <!--                android:textColor="@color/black" />-->
+
+
+
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/selectedIV"-->
+        <!--                    android:scaleType="centerCrop"-->
+        <!--                    android:layout_width="150dp"-->
+        <!--                    android:layout_height="150dp"-->
+        <!--                    android:layout_gravity="center"-->
+        <!--                    android:layout_marginBottom="@dimen/normal_spacing"-->
+        <!--                    android:visibility="gone" />-->
+
+
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/catNameET"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="@dimen/normal_spacing"-->
+        <!--            android:height="50dp"-->
+        <!--            android:hint="Category Name *"-->
+        <!--            android:textSize="14dp"-->
+        <!--            android:padding="@dimen/normal_spacing"-->
+        <!--            tools:ignore="SpeakableTextPresentCheck"-->
+        <!--            android:drawableTint="@color/black"/>-->
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
+            android:backgroundTint="@color/light_blue"
+            android:layout_height="60dp"
+            android:text="UPLOAD"
+            android:textColor="@color/navy_blue" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="match_parent">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="350dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/normal_spacing"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/imageLayout"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="@dimen/normal_spacing"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/cameraIV"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:background="@drawable/upload_rectangle"-->
+<!--                android:padding="@dimen/small_spacing"-->
+<!--                android:src="@drawable/camera" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/galleryIV"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_marginLeft="@dimen/normal_spacing"-->
+<!--                android:background="@drawable/upload_rectangle"-->
+<!--                android:padding="@dimen/small_spacing"-->
+<!--                android:src="@drawable/gallery" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginLeft="@dimen/normal_spacing"-->
+<!--                android:text="Select Image"-->
+<!--                android:textColor="@color/black" />-->
+
+
+<!--        </LinearLayout>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/selectedIV"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginBottom="@dimen/normal_spacing"-->
+<!--            android:visibility="gone" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/catNameET"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="@dimen/normal_spacing"-->
+<!--            android:height="50dp"-->
+<!--            android:background="@drawable/box_shape"-->
+<!--            android:backgroundTint="@color/grey"-->
+<!--            android:hint="Category Name"-->
+<!--            android:padding="@dimen/normal_spacing"-->
+<!--            tools:ignore="SpeakableTextPresentCheck" />-->
+
+
+<!--        <Button-->
+<!--            android:id="@+id/upload"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:text="UPLOAD"-->
+<!--            android:textColor="@color/white" />-->
+
+<!--    </LinearLayout>-->
+
+
+<!--</androidx.cardview.widget.CardView>-->
