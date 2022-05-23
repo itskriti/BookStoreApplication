@@ -87,7 +87,8 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/editProfileLL"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:background="@drawable/square"
@@ -100,7 +101,6 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="@dimen/normalspacing"
-
             android:src="@drawable/ic_userprofile"
             app:tint="@color/black" />
 
@@ -108,18 +108,19 @@
             android:id="@+id/editProfileTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="10dp"
             android:text="Edit Profile"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <ImageView
+            android:layout_marginStart="220dp"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_round_arrow_forward_ios_24"
             android:layout_alignParentEnd="true"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 <!--    <RelativeLayout-->
 <!--        android:layout_width="match_parent"-->
@@ -155,41 +156,44 @@
 
 <!--    </RelativeLayout>-->
 
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="44dp"-->
-<!--        android:background="@drawable/square"-->
-<!--        android:padding="@dimen/normalspacing"-->
-<!--        android:layout_marginStart="@dimen/normalspacing"-->
-<!--        android:layout_marginEnd="@dimen/normalspacing"-->
-<!--        android:layout_marginTop="@dimen/normalspacing">-->
+    <LinearLayout
+        android:id="@+id/ordersHistoryLL"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/square"
+        android:padding="@dimen/normalspacing"
+        android:layout_marginStart="@dimen/normalspacing"
+        android:layout_marginEnd="@dimen/normalspacing"
+        android:layout_marginTop="@dimen/normalspacing">
 
-<!--        <ImageView-->
-<!--            android:layout_width="24dp"-->
-<!--            android:layout_height="24dp"-->
-<!--            android:layout_marginEnd="@dimen/normalspacing"-->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="@dimen/normalspacing"
 
-<!--            android:src="@drawable/ic_orderhistory"-->
-<!--            app:tint="@color/black" />-->
+            android:src="@drawable/ic_orderhistory"
+            app:tint="@color/black" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/orderHistoryTV"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="40dp"-->
-<!--            android:text="Order History"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="18sp" />-->
+        <TextView
+            android:id="@+id/orderHistoryTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Order History"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
-<!--        <ImageView-->
-<!--            android:layout_width="24dp"-->
-<!--            android:layout_height="24dp"-->
-<!--            android:src="@drawable/ic_round_arrow_forward_ios_24"-->
-<!--            android:layout_alignParentEnd="true"/>-->
+        <ImageView
+            android:layout_marginStart="200dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_round_arrow_forward_ios_24" />
 
-<!--    </RelativeLayout>-->
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/settingLL"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:background="@drawable/square"
@@ -209,20 +213,22 @@
             android:id="@+id/settingTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="10dp"
             android:text="Setting"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <ImageView
+            android:layout_marginStart="250dp"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_round_arrow_forward_ios_24"
             android:layout_alignParentEnd="true"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/customerLL"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:background="@drawable/square"
@@ -243,18 +249,19 @@
             android:id="@+id/customerTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="10dp"
             android:text="Contact Us"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <ImageView
+            android:layout_marginStart="216dp"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_round_arrow_forward_ios_24"
             android:layout_alignParentEnd="true"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
     <TextView

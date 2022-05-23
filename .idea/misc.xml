@@ -63,8 +63,10 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_add_new_address.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_address.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_admin.xml" value="0.2" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_admin_order.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_booking.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_category.xml" value="0.4463667820069204" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_change_password.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_check_out.xml" value="0.2" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_customer_service.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/activity_home.xml" value="0.25" />
@@ -91,6 +93,7 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/book_wishlist.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/content_add_new_address.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/custom_dialog_add_category.xml" value="0.25" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/custom_dialog_add_profile.xml" value="0.4" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_cart.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_category.xml" value="0.536" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/BookStoreApplication/app/src/main/res/layout/fragment_first.xml" value="0.25" />

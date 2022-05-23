@@ -98,6 +98,12 @@ public interface ApiService {
             @Field("province") String province,
             @Field("description") String description);
 
+
+    @FormUrlEncoded
+    @POST("/api/v1/forget-password")
+    Call<RegisterResponse> forgetPassword(@Header("api_key") String apikey, @Field("password") String password);
+
+
     @Multipart
     @POST("/api/v1/upload-category")
     Call<RegisterResponse> uploadCategory(
@@ -120,6 +126,13 @@ public interface ApiService {
             @Part("categories") RequestBody categories,
             @Part("author_name") RequestBody author_name
 
+    );
+
+    @Multipart
+    @POST("/api/v1/upload-profile")
+    Call<RegisterResponse> uploadProfile(
+            @Header("api_key") String apikey,
+            @Part MultipartBody.Part file
     );
 
     @GET("/api/v1/dash")

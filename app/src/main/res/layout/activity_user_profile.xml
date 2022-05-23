@@ -64,6 +64,14 @@
                 app:civ_border_color="@color/priceGray"
                 app:civ_border_width="1dp" />
 
+            <ImageView
+                android:id="@+id/changeProfileIV"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginTop="35dp"
+                android:src="@drawable/camera"/>
+
 
 
 

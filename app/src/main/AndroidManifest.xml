@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,18 +17,22 @@
         android:theme="@style/Theme.BookStoreApplication"
         tools:replace="android:theme">
         <activity
+            android:name=".admin.AdminOrderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".profile.ChangePasswordActivity"
+            android:exported="true" />
+        <activity
             android:name=".orders.orderDetails.OrderHistoryActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
-        <!-- tools:replace="android:theme"> -->
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" /> <!-- tools:replace="android:theme"> -->
         <activity
             android:name=".orders.orderDetails.OrderDetailsActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
         <activity
             android:name=".profile.CustomerServiceActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".profile.UserProfileActivity"
             android:exported="true" />
@@ -42,18 +45,18 @@
         <activity
             android:name=".admin.addBook.AddBookActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
         <activity
             android:name=".checkout.address.AddNewAddressActivity"
             android:exported="true" />
         <activity
             android:name=".admin.addCategory.ListCategoryActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
         <activity
             android:name=".admin.books.ListBookActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
         <activity
             android:name=".admin.AdminActivity"
             android:exported="true" />

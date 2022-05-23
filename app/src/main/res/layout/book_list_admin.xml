@@ -42,14 +42,7 @@ android:backgroundTint="#F1F6FD"
             android:text="Purple Hoodie"
             />
 
-        <ImageView
-            android:id="@+id/removeCartIV"
-            android:rotation="40"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@drawable/rectangle"
-            android:src="@drawable/ic_round_add_24"
-            app:tint="@color/white" />
+
 
 
     </LinearLayout>
@@ -85,7 +78,7 @@ android:backgroundTint="#F1F6FD"
     </LinearLayout>
     <TextView
         android:id="@+id/authorTV"
-        android:text="By Paulo Coelho,"
+        android:text="By Paulo Coelho,                                     "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="2"

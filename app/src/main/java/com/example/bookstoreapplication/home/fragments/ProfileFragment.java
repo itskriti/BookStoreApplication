@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.example.bookstoreapplication.R;
 import com.example.bookstoreapplication.UserAccount.UserAccountActivity;
 import com.example.bookstoreapplication.admin.AdminActivity;
+import com.example.bookstoreapplication.orders.orderDetails.OrderHistoryActivity;
+import com.example.bookstoreapplication.profile.ChangePasswordActivity;
 import com.example.bookstoreapplication.profile.CustomerServiceActivity;
 import com.example.bookstoreapplication.profile.UserProfileActivity;
 import com.example.bookstoreapplication.utils.SharedPrefUtils;
@@ -25,7 +27,8 @@ import com.example.bookstoreapplication.utils.SharedPrefUtils;
 
 public class ProfileFragment extends Fragment {
     LinearLayout logoutButton;
-    TextView editProfileTV, myBooksTV, orderHistoryTV, settingTV, customerTV, adminAreaTV;
+    TextView  settingTV, customerTV, adminAreaTV;
+    LinearLayout ordersLL, editProfileLL, customerLL, settingLL;
 
 
 
@@ -41,11 +44,12 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        editProfileTV = view.findViewById(R.id.editProfileTV);
-//        myBooksTV = view.findViewById(R.id.myBooksTV);
+        editProfileLL = view.findViewById(R.id.editProfileLL);
+
+        ordersLL = view.findViewById(R.id.ordersHistoryLL);
 //        orderHistoryTV = view.findViewById(R.id.orderHistoryTV);
-        settingTV = view.findViewById(R.id.settingTV);
-        customerTV = view.findViewById(R.id.customerTV);
+        settingLL = view.findViewById(R.id.settingLL);
+        customerLL = view.findViewById(R.id.customerLL);
         logoutButton = view.findViewById(R.id.logout);
         adminAreaTV = view.findViewById(R.id.adminAreaTV);
         checkAdmin();
@@ -70,11 +74,19 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        editProfileTV.setOnClickListener(new View.OnClickListener() {
+        editProfileLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                  Intent intent = new Intent(getContext(), UserProfileActivity.class);
                  startActivity(intent);
+            }
+        });
+
+        ordersLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), OrderHistoryActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -88,14 +100,15 @@ public class ProfileFragment extends Fragment {
 //            }
 //        });
 
-        settingTV.setOnClickListener(new View.OnClickListener() {
+        settingLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getContext(), ChangePasswordActivity.class);
+                startActivity(intent);
             }
         });
 
-        customerTV.setOnClickListener(new View.OnClickListener() {
+        customerLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), CustomerServiceActivity.class);
